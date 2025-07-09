@@ -36,6 +36,7 @@
             text-align: center;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
+            position: relative;
         }
 
         .profile-image {
@@ -114,6 +115,31 @@
 
         .contact-link:hover {
             transform: translateY(-2px);
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            z-index: 10;
+        }
+
+        .language-btn {
+            background: linear-gradient(45deg, #061452, #0c4b68);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 0.4rem 0.8rem;
+            margin-left: 0.3rem;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .language-btn.active {
+            background: #4f46e5;
         }
 
         /* About Section */
@@ -202,7 +228,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             color: white;
             flex-shrink: 0;
         }
@@ -220,7 +246,8 @@
         }
 
         .project-description {
-            color: #666;
+            font-size: 1rem;
+            color: #667;
             margin-bottom: 1rem;
             line-height: 1.4;
         }
@@ -237,7 +264,7 @@
             color: #4f46e5;
             padding: 0.2rem 0.6rem;
             border-radius: 5px;
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             border: 1px solid #e0f2fe;
         }
 
@@ -298,6 +325,10 @@
 </head>
 <body>
     <header>
+        <div class="language-switcher">
+            <button class="language-btn" data-lang="en">EN</button>
+            <button class="language-btn" data-lang="fr">FR</button>
+        </div>
         <div class="container">
             <div class="profile-image">
                 <img src="./images/pic.png" alt="LL">
@@ -305,7 +336,8 @@
             <!-- Sans photo, avec initiales (commenté) -->
             <!-- <div class="profile-image no-image">LL</div> -->
             <h1>Louis Lecat</h1>
-            <p class="subtitle">Application Integration & Cloud Engineer</p>
+            <p class="subtitle lang-en">Application Integration & Cloud Engineer</p>
+            <p class="subtitle lang-fr" style="display:none;">Ingénieur Cloud et Intégration d'Applications</p>
             <div class="contact-links">
                 <a href="mailto:louis.lecat@proton.me" class="contact-link">
                     <i class="fa-solid fa-envelope"></i> Contact
@@ -322,107 +354,194 @@
 
     <main class="container">
         <section class="about">
-            <h3 style="text-align: center;">Portfolio under construction 🚧⏳</h3>
-            <h2>About</h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Vivamus at est tellus. 
-                Integer quam mi, dignissim id mauris ac, gravida fermentum sem. Nulla sem ante, malesuada eget posuere vitae, molestie id lacus.
+            <h3 style="text-align: center;" class="lang-en">Portfolio under construction 🚧⏳</h3>
+            <h3 style="text-align: center; display:none;" class="lang-fr">Portfolio en construction 🚧⏳</h3>
+            <h2 class="lang-en">About</h2>
+            <h2 class="lang-fr" style="display:none;">À propos</h2>
+            <p class="lang-en">
+                With over 6 years at the University of Bordeaux’s IT Department, I evolved from a Windows Systems Administrator to a DevOps Engineer, managing complex infrastructures and deployments for thousands of users. 
+                My skills cover automation, container orchestration and CI/CD, Linux/Windows systems, Infrastructure as Code, Azure, and Active Directory ecosystem. 
             </p>
-            <p>
-                Maecenas malesuada lacus eros, sit amet accumsan mi luctus at. 
-                Proin porta venenatis nisi, eu eleifend sem dapibus nec. 
-                Vestibulum metus dolor, elementum et efficitur eget, hendrerit in magna. Maecenas hendrerit dui a dictum dignissim. Etiam ultrices ornare hendrerit. 
+            <p class="lang-fr" style="display:none;">
+                Avec plus de 6 ans à la DSI de l’Université de Bordeaux, j’ai évolué d’Administrateur Systèmes Windows à Ingénieur DevOps, gérant des infrastructures et déploiements complexes pour des milliers d’utilisateurs. 
+                Mes compétences couvrent l’automatisation, l’orchestration de conteneurs et le CI/CD, les systèmes Linux et Windows, Azure, et l'écosystème Active Directory. 
+            </p>
+            <p class="lang-en">
+                Currently enhancing my Cloud and DevOps expertise by pursuing Azure AZ-104 and Kubernetes CKA certifications, while exploring AI solution integration. I’m seeking remote freelance or full-time roles worldwide.
+            </p>
+            <p class="lang-fr" style="display:none;">
+                Aujourd’hui, j'approfondis mes compétences Cloud et DevOps en travaillant les certifications Azure AZ-104, Kubernetes CKA, et explore l'intégration de solutions IA. 
+                Je cherche des opportunités en télétravail (freelance ou salarié) en France ou à l’international. 
             </p>
             <div class="skills">
-                <span class="skill-tag">Des</span>
-                <span class="skill-tag">super</span>
-                <span class="skill-tag">tags</span>
-                <span class="skill-tag">qui</span>
-                <span class="skill-tag">pètent</span>
+                <span class="skill-tag">Cloud</span>
+                <span class="skill-tag">IaC</span>
+                <span class="skill-tag">DevOps</span>
+                <span class="skill-tag lang-en">Automation</span>
+                <span class="skill-tag lang-fr" style="display:none;">Automatisation</span>
+                <span class="skill-tag lang-en">System Administration</span>
+                <span class="skill-tag lang-fr" style="display:none;">Administration Systèmes</span>
             </div>
         </section>
 
         <section class="projects">
-            <h2>Some projects</h2>
+            <h2 class="lang-en">Some works and projects</h2>
+            <h2 class="lang-fr" style="display:none;">Quelques travaux et projets</h2>
             <div class="projects-list">
+
+                <!-- Project 1 -->
                 <div class="project-item">
                     <div class="project-icon"><i class="devicon-kubernetes-plain"></i></div>
                     <div class="project-content">
-                        <h3 class="project-title">Project 1</h3>
-                        <p class="project-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at est tellus. 
-                            Integer quam mi, dignissim id mauris ac, gravida fermentum sem. Nulla sem ante, malesuada eget posuere vitae, molestie id lacus. 
-                            Nunc ut pharetra arcu. Vestibulum purus sem, congue eget mi non, condimentum lacinia nibh.
+                        <h3 class="project-title lang-en">Open Journal Systems Containerization</h3>
+                        <h3 class="project-title lang-fr" style="display:none;">Plateforme de publication académique containerisée</h3>
+                        <p class="project-description lang-en">
+                            Containerized Open Journal Systems (OJS) for automated, scalable deployment on Kubernetes clusters.<br />
+                            Implemented isolated journal instances, each with a dedicated pod and MariaDB database managed via a Kubernetes operator.<br />
+                            Leveraged Helm charts and templating for consistent deployments across environments with CI/CD pipelines. 
+                        </p>
+                        <p class="project-description lang-fr" style="display:none;">
+                            Containerisation d'Open Journal Systems pour un déploiement automatisé sur clusters Kubernetes.<br />
+                            Mise en place d'instances isolées par revue, chacune avec son pod dédié et sa base MariaDB gérée via opérateur Kubernetes.<br />
+                            Utilisation de chartes Helm pour des déploiements cohérents entre environnements via pipelines CI/CD.<br />
                         </p>
                         <div class="project-tech">
-                            <span class="tech-tag">Des</span>
-                            <span class="tech-tag">gros</span>
-                            <span class="tech-tag">tags</span>
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">Helm</span>
+                            <span class="tech-tag">CI/CD</span>
+                            <span class="tech-tag">Flux CD</span>
                         </div>
-                        <a href="https://github.com/LsLct" class="project-link" target="_blank">
-                            <i class="fa-solid fa-link"></i> More details
+                        <a href="https://github.com/LsLct" class="project-link lang-en" target="_blank">
+                            <i class="fa-solid fa-link"></i> More details (🚧⏳)
+                        </a>
+                        <a href="https://github.com/LsLct" class="project-link lang-fr" target="_blank" style="display:none;">
+                            <i class="fa-solid fa-link"></i> Plus d'infos (🚧⏳)
                         </a>
                     </div>
                 </div>
 
+                <!-- Project 2 -->
                 <div class="project-item">
                     <div class="project-icon"><i class="devicon-terraform-plain"></i></div>
                     <div class="project-content">
-                        <h3 class="project-title">Project 2</h3>
-                        <p class="project-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at est tellus. 
-                            Integer quam mi, dignissim id mauris ac, gravida fermentum sem. Nulla sem ante, malesuada eget posuere vitae, molestie id lacus. 
-                            Nunc ut pharetra arcu. Vestibulum purus sem, congue eget mi non, condimentum lacinia nibh.
+                        <h3 class="project-title lang-en">IaC with GitOps Workflow</h3>
+                        <h3 class="project-title lang-fr" style="display:none;">Infrastructure as Code, façon GitOps</h3>
+                        <p class="project-description lang-en">
+                            Developed a comprehensive IaC solution for OpenStack deployments using Terraform modules.<br />
+                            Structured code into reusable modules for enhanced readability and maintainability. VMs, load balancers, virtual networks and other infrastructure services.<br />
+                            Implemented GitOps workflow with GitLab CI/CD, tf-controller, and Flux CD for automated infrastructure provisioning and drift detection. 
+                        </p>
+                        <p class="project-description lang-fr" style="display:none;">
+                            Solution IaC complète pour les déploiements OpenStack via modules Terraform. Code structuré en modules réutilisables garantissant cohérence et maintenabilité. Machines virtuelles, load balancers, réseaux virtuels et autres services d'infrastructure.<br />
+                            Intégration à GitLab et utilisation de tf-controller et Flux CD pour automatiser les mises à jour d’infrastructure selon un workflow GitOps, garantissant des déploiements cohérents. 
                         </p>
                         <div class="project-tech">
-                            <span class="tech-tag">Des</span>
-                            <span class="tech-tag">gros</span>
-                            <span class="tech-tag">tags</span>
+                            <span class="tech-tag">Terraform</span>
+                            <span class="tech-tag">OpenStack</span>
+                            <span class="tech-tag">Gitlab</span>
+                            <span class="tech-tag">Flux CD</span>
+                            <span class="tech-tag">GitOps</span>
                         </div>
-                        <a href="https://github.com/LsLct" class="project-link" target="_blank">
-                            <i class="fa-solid fa-link"></i> More details
+                        <a href="https://github.com/LsLct" class="project-link lang-en" target="_blank">
+                            <i class="fa-solid fa-link"></i> More details (🚧⏳)
+                        </a>
+                        <a href="https://github.com/LsLct" class="project-link lang-fr" target="_blank" style="display:none;">
+                            <i class="fa-solid fa-link"></i> Plus d'infos (🚧⏳)
                         </a>
                     </div>
                 </div>
 
+                <!-- Project 3 -->
                 <div class="project-item">
                     <div class="project-icon"><i class="devicon-powershell-plain"></i></div>
                     <div class="project-content">
-                        <h3 class="project-title">Project 3</h3>
-                        <p class="project-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at est tellus. 
-                            Integer quam mi, dignissim id mauris ac, gravida fermentum sem. Nulla sem ante, malesuada eget posuere vitae, molestie id lacus. 
-                            Nunc ut pharetra arcu. Vestibulum purus sem, congue eget mi non, condimentum lacinia nibh.
+                        <h3 class="project-title lang-en">Active Directory and OpenLDAP Account Synchronization</h3>
+                        <h3 class="project-title lang-fr" style="display:none;">Synchronisation d'annuaires OpenLDAP vers Active Directory</h3>
+                        <p class="project-description lang-en">
+                            Developed modular PowerShell scripts to synchronize over 60,000 user accounts from OpenLDAP to Active Directory, including account provisioning and lifecycle management with Kerberos authentication integration.<br />
+                            Implemented LDAP attribute-based group membership assignment and secure random password generation, ensuring seamless identity management across systems.
+                        </p>
+                        <p class="project-description lang-fr" style="display:none;">
+                            Scripts et modules PowerShell pour synchroniser plus de 60 000 comptes d'utilisateurs d’OpenLDAP vers Active Directory, avec création et gestion du cycle de vie des comptes, en prenant en charge l'authentification Kerberos externe, l'appartenance aux groupes selon des attributs LDAP, et la génération de mots de passe aléatoires.<br /> 
+                            Tout cela assurant une gestion des identité transparente entre les systèmes.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-tag">Des</span>
-                            <span class="tech-tag">gros</span>
-                            <span class="tech-tag">tags</span>
+                            <span class="tech-tag">Powershell</span>
+                            <span class="tech-tag">Active Directory</span>
+                            <span class="tech-tag">OpenLDAP</span>
+                            <span class="tech-tag lang-en">Identity Management</span>
+                            <span class="tech-tag lang-fr" style="display:none;">Gestion d'identité</span>
+                            <span class="tech-tag">Kerberos</span>
                         </div>
-                        <a href="https://github.com/LsLct" class="project-link" target="_blank">
-                            <i class="fa-solid fa-link"></i> More details
+                        <a href="https://github.com/LsLct" class="project-link lang-en" target="_blank">
+                            <i class="fa-solid fa-link"></i> More details (🚧⏳)
+                        </a>
+                        <a href="https://github.com/LsLct" class="project-link lang-fr" target="_blank" style="display:none;">
+                            <i class="fa-solid fa-link"></i> Plus d'infos (🚧⏳)
                         </a>
                     </div>
                 </div>
 
+                <!-- Project 4 -->
                 <div class="project-item">
-                    <div class="project-icon"><i class="fa-solid fa-flask"></i></div>
+                    <div class="project-icon"><i class="devicon-ansible-plain"></i></div>
                     <div class="project-content">
-                        <h3 class="project-title">Project 4</h3>
-                        <p class="project-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at est tellus. 
+                        <h3 class="project-title lang-en">Automated Application Deployment with Ansible</h3>
+                        <h3 class="project-title lang-fr" style="display:none;">Déploiement d'applications avec Ansible</h3>
+                        <p class="project-description lang-en">
+                            Some Ansible playbooks examples for automated deployment of web applications (iTop, GLPI) with complete infrastructure provisioning.<br/> 
+                            Handling base system configuration, dependency management, SSL certificate provisioning, and application customization.
+                        </p>
+                        <p class="project-description lang-fr" style="display:none;">
+                            Quelques exemples de recettes Ansible pour le déploiement automatisé d'applications web (iTop, GLPI) avec provisioning complet d'infrastructure. Gestion de la configuration système, des dépendances, des certificats SSL et de la personnalisation applicative.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Ansible</span>
+                            <span class="tech-tag lang-en">Configuration Management</span>
+                            <span class="tech-tag lang-fr" style="display:none;">Gestion de configuration</span>
+                            <span class="tech-tag lang-en">Web Applications</span>
+                            <span class="tech-tag lang-fr" style="display:none;">Applications Web</span>
+                            <span class="tech-tag">Apache</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MariaDB</span>
+                        </div>
+                        <a href="https://github.com/LsLct" class="project-link lang-en" target="_blank">
+                            <i class="fa-solid fa-link"></i> More details (🚧⏳)
+                        </a>
+                        <a href="https://github.com/LsLct" class="project-link lang-fr" target="_blank" style="display:none;">
+                            <i class="fa-solid fa-link"></i> Plus d'infos (🚧⏳)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-item">
+                    <div class="project-icon"><i class="fa-solid fa-wrench"></i></div>
+                    <div class="project-content">
+                        <h3 class="project-title lang-en">Troubleshooting</h3>
+                        <h3 class="project-title lang-fr" style="display:none;">Troubleshooting</h3>
+                        <p class="project-description lang-en">
+                            🚧⏳ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at est tellus. 
+                            Integer quam mi, dignissim id mauris ac, gravida fermentum sem. Nulla sem ante, malesuada eget posuere vitae, molestie id lacus. 
+                            Nunc ut pharetra arcu. Vestibulum purus sem, congue eget mi non, condimentum lacinia nibh.
+                        </p>
+                        <p class="project-description lang-fr" style="display:none;">
+                            🚧⏳ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at est tellus. 
                             Integer quam mi, dignissim id mauris ac, gravida fermentum sem. Nulla sem ante, malesuada eget posuere vitae, molestie id lacus. 
                             Nunc ut pharetra arcu. Vestibulum purus sem, congue eget mi non, condimentum lacinia nibh.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-tag">Des</span>
-                            <span class="tech-tag">gros</span>
-                            <span class="tech-tag">tags</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Bash</span>
+                            <span class="tech-tag">Kubernetes</span>
                         </div>
-                        <a href="https://github.com/LsLct" class="project-link" target="_blank">
-                            <i class="fa-solid fa-link"></i> More details
+                        <a href="https://github.com/LsLct" class="project-link lang-en" target="_blank">
+                            <i class="fa-solid fa-link"></i> More details (🚧⏳)
                         </a>
+                        <a href="https://github.com/LsLct" class="project-link lang-fr" target="_blank" style="display:none;">
+                            <i class="fa-solid fa-link"></i> Plus d'infos (🚧⏳)
+                        </a>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -434,8 +553,26 @@
             <p>
                 &copy; 2025 Louis Lecat | Made with some help from Claude: honest guy here 🙂 | All rights reserved.
             </p>
-
         </div>
     </footer>
+
+    <script>
+        function setLang(lang) {
+            document.documentElement.lang = lang;
+            localStorage.setItem('lang', lang);
+            document.querySelectorAll('.lang-en').forEach(el => el.style.display = (lang === 'en' ? '' : 'none'));
+            document.querySelectorAll('.lang-fr').forEach(el => el.style.display = (lang === 'fr' ? '' : 'none'));
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+        }
+        document.querySelectorAll('.language-btn').forEach(btn => {
+            btn.addEventListener('click', () => setLang(btn.dataset.lang));
+        });
+        (function() {
+            let lang = localStorage.getItem('lang') || 'en';
+            setLang(lang);
+        })();
+    </script>
 </body>
 </html>
