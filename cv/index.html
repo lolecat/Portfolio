@@ -19,6 +19,13 @@
             background: linear-gradient(135deg, #061452 0%, #0c4b68 100%);
             min-height: 100vh;
             padding: 20px;
+            zoom: 120%;
+        }
+
+        @media print {
+            body {
+                zoom: 1 !important;
+            }
         }
 
         .controls {
