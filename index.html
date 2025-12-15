@@ -4,322 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Louis Lecat</title>
+
+    <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />   
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.5;
-            color: #333;
-            background: linear-gradient(135deg, #061452 0%, #0c4b68 100%);
-            min-height: 100vh;
-            font-size: 0.9rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 2rem 0;
-            text-align: center;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        .profile-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-            font-weight: bold;
-            overflow: hidden;
-            border: 4px solid transparent;
-            background: linear-gradient(45deg, #061452, #0c4b68);
-            background-clip: padding-box;
-            position: relative;
-        }
-
-        .profile-image::before {
-            content: '';
-            position: absolute;
-            top: -4px;
-            left: -4px;
-            right: -4px;
-            bottom: -4px;
-            background: linear-gradient(45deg, #061452, #0c4b68);
-            border-radius: 50%;
-            z-index: -1;
-        }
-
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        .profile-image.no-image {
-            background: linear-gradient(45deg, #061452, #0c4b68);
-            color: white;
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(45deg, #061452, #0c4b68);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            color: #667;
-            margin-bottom: 1rem;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            padding: 0 10px;
-        }
-
-        .contact-link {
-            padding: 0.5rem 0.8rem;
-            background: linear-gradient(45deg, #061452, #0c4b68);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: transform 0.3s ease;
-            font-size: 0.9rem;
-            min-width: 100px;
-        }
-
-        .contact-link:hover {
-            transform: translateY(-2px);
-        }
-
-        .language-switcher {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            z-index: 10;
-        }
-
-        .language-btn {
-            background: linear-gradient(45deg, #061452, #0c4b68);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 0.4rem 0.8rem;
-            margin-left: 0.3rem;
-            cursor: pointer;
-            font-size: 0.95rem;
-            font-weight: bold;
-            transition: background 0.2s;
-        }
-
-        .language-btn.active {
-            background: #4f46e5;
-        }
-
-        /* About Section */
-        .about {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 7px;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .about h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .about p {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            color: #667;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .skill-tag {
-            background: linear-gradient(45deg, #061452, #0c4b68);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 5px;
-            font-size: 0.85rem;
-        }
-
-        /* Projects Section */
-        .projects {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 7px;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .projects h2 {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            color: #333;
-            /* text-align: center; */
-        }
-
-        .projects-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .project-item {
-            background: white;
-            border-radius: 7px;
-            padding: 1.5rem;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 4px solid transparent;
-            border-image: linear-gradient(45deg, #4f46e5, #0ea5e9) 1;
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-        }
-
-        .project-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, #4f46e5, #0ea5e9);
-            border-radius: 7px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: white;
-            flex-shrink: 0;
-        }
-
-        .project-content {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .project-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .project-description {
-            font-size: 1rem;
-            color: #667;
-            margin-bottom: 1rem;
-            line-height: 1.4;
-            text-align: left;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.3rem;
-            margin-bottom: 1rem;
-        }
-
-        .tech-tag {
-            background: #f0f8ff;
-            color: #4f46e5;
-            padding: 0.2rem 0.6rem;
-            border-radius: 5px;
-            font-size: 0.85rem;
-            border: 1px solid #e0f2fe;
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: linear-gradient(45deg, #4f46e5, #0ea5e9);
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-            font-size: 0.85rem;
-        }
-
-        .project-link:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            .projects-list {
-                gap: 1rem;
-            }
-
-            .project-item {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-
-            .project-icon {
-                align-self: center;
-            }
-        }
-    </style>
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" /> 
+    <!-- Internal CSS -->
+    <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
     <header>
         <div class="language-switcher">
@@ -333,17 +25,23 @@
             <!-- Sans photo, avec initiales (commenté) -->
             <!-- <div class="profile-image no-image">LL</div> -->
             <h1>Louis Lecat</h1>
-            <p class="subtitle lang-en">Application Integration & Cloud Engineer</p>
-            <p class="subtitle lang-fr" style="display:none;">Ingénieur Cloud et Intégration d'Applications</p>
+            <p class="subtitle lang-en">Cloud & DevOps Engineer</p>
+            <p class="subtitle lang-fr" style="display:none;">Ingénieur Cloud et DevOps</p>
             <div class="contact-links">
                 <a href="mailto:louis.lecat@proton.me" class="contact-link">
                     <i class="fa-solid fa-envelope"></i> Contact
                 </a>
-                <a href="https://github.com/LsLct" class="contact-link" target="_blank">
+                <a href="./cv/index.html" class="contact-link">
+                    <i class="fa-solid fa-file-pdf"></i> CV
+                </a>
+                <a href="https://github.com/lolecat" class="contact-link" target="_blank">
                     <i class="fab fa-github"></i> GitHub
                 </a>
                 <a href="https://www.linkedin.com/in/lolecat/" class="contact-link" target="_blank">
                     <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://x.com/lolecat_" class="contact-link" target="_blank">
+                    <i class="fa-brands fa-square-x-twitter"></i> X / Twitter
                 </a>
             </div>
         </div>
@@ -351,8 +49,8 @@
 
     <main class="container">
         <section class="about">
-            <h3 style="text-align: center;" class="lang-en">Portfolio under construction 🚧⏳</h3>
-            <h3 style="text-align: center; display:none;" class="lang-fr">Portfolio en construction 🚧⏳</h3>
+            <!-- <h3 style="text-align: center;" class="lang-en">Portfolio under construction 🚧⏳</h3> -->
+            <!-- <h3 style="text-align: center; display:none;" class="lang-fr">Portfolio en construction 🚧⏳</h3> -->
             <h2 class="lang-en">About</h2>
             <h2 class="lang-fr" style="display:none;">À propos</h2>
             <p class="lang-en">
@@ -370,6 +68,7 @@
                 Aujourd’hui, j'approfondis mes compétences Cloud et DevOps en travaillant les certifications Azure AZ-104, Kubernetes CKA, et explore l'intégration de solutions IA. 
                 Je cherche des opportunités en télétravail (freelance ou salarié) en France ou à l’international. 
             </p>
+            <!--
             <div class="skills">
                 <span class="skill-tag">Cloud</span>
                 <span class="skill-tag">IaC</span>
@@ -377,201 +76,438 @@
                 <span class="skill-tag lang-en">Automation</span>
                 <span class="skill-tag lang-fr" style="display:none;">Automatisation</span>
                 <span class="skill-tag lang-en">System Administration</span>
-                <span class="skill-tag lang-fr" style="display:none;">Administration Systèmes</span>
             </div>
+            -->
         </section>
 
-        <section class="projects">
-            <h2 class="lang-en">Some works and projects</h2>
-            <h2 class="lang-fr" style="display:none;">Quelques travaux et projets</h2>
-            <div class="projects-list">
+        <div class="tabs-container">
+            <div class="tabs-nav">
+                <button class="tab-button active" data-tab="projects">
+                    <span class="lang-en">Projects</span>
+                    <span class="lang-fr" style="display:none;">Projets</span>
+                </button>
+                <button class="tab-button" data-tab="certifications">
+                    <span class="lang-en">Certifications</span>
+                    <span class="lang-fr" style="display:none;">Certifications</span>
+                </button>
+                <button class="tab-button" data-tab="career">
+                    <span class="lang-en">Career</span>
+                    <span class="lang-fr" style="display:none;">Parcours</span>
+                </button>
+            </div>
 
-                <!-- Project 1 -->
-                <div class="project-item">
-                    <div class="project-icon"><i class="devicon-kubernetes-plain"></i></div>
-                    <div class="project-content">
-                        <h3 class="project-title lang-en">Open Journal Systems Containerization</h3>
-                        <h3 class="project-title lang-fr" style="display:none;">Plateforme de publication académique containerisée</h3>
-                        <p class="project-description lang-en">
-                            Containerized Open Journal Systems (OJS) for automated, scalable deployment on Kubernetes clusters.<br />
-                            Implemented isolated journal instances, each with a dedicated pod and MariaDB database managed via a Kubernetes operator.<br />
-                            Leveraged Helm charts and templating for consistent deployments across environments with CI/CD pipelines.<br />
-                            Managed data migration from legacy VM deployments while deploying new, isolated instances.
-                        </p>
-                        <p class="project-description lang-fr" style="display:none;">
-                            Containerisation d'Open Journal Systems pour un déploiement automatisé sur clusters Kubernetes.<br />
-                            Mise en place d'instances isolées par revue, chacune avec son pod dédié et sa base MariaDB gérée via opérateur Kubernetes.<br />
-                            Utilisation de chartes Helm pour des déploiements cohérents entre environnements via pipelines CI/CD.<br />
-                            Migration des données depuis des déploiements VM existants vers les nouvelles instances isolées.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Kubernetes</span>
-                            <span class="tech-tag">Helm</span>
-                            <span class="tech-tag">CI/CD</span>
-                            <span class="tech-tag">Flux CD</span>
+            <!-- Projects Tab -->
+            <div class="tab-content active" id="projects">
+                <div class="content-wrapper">
+                    <h2 class="lang-en">Some works and projects</h2>
+                    <h2 class="lang-fr" style="display:none;">Quelques travaux et projets</h2>
+                    <div class="projects-list">
+
+                    <!-- Project 1 -->
+                    <div class="project-item">
+                        <div class="project-icon"><i class="devicon-kubernetes-plain"></i></div>
+                        <div class="project-content">
+                            <h3 class="project-title lang-en">Open Journal Systems Containerization</h3>
+                            <h3 class="project-title lang-fr" style="display:none;">Plateforme de publication académique containerisée</h3>
+                            <p class="project-description lang-en">
+                                Containerized Open Journal Systems (OJS) for automated, scalable deployment on Kubernetes clusters.<br />
+                                Implemented isolated journal instances, each with a dedicated pod and MariaDB database managed via a Kubernetes operator.<br />
+                                Leveraged Helm charts and templating for consistent deployments across environments with CI/CD pipelines.<br />
+                                Managed data migration from legacy VM deployments while deploying new, isolated instances.
+                            </p>
+                            <p class="project-description lang-fr" style="display:none;">
+                                Containerisation d'Open Journal Systems pour un déploiement automatisé sur clusters Kubernetes.<br />
+                                Mise en place d'instances isolées par revue, chacune avec son pod dédié et sa base MariaDB gérée via opérateur Kubernetes.<br />
+                                Utilisation de chartes Helm pour des déploiements cohérents entre environnements via pipelines CI/CD.<br />
+                                Migration des données depuis des déploiements VM existants vers les nouvelles instances isolées.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Kubernetes</span>
+                                <span class="tech-tag">Helm</span>
+                                <span class="tech-tag">CI/CD</span>
+                                <span class="tech-tag">Flux CD</span>
+                            </div>
+                            <a href="https://github.com/LsLct" class="project-link lang-en" target="_blank">
+                                <i class="fa-solid fa-link"></i> More details
+                            </a>
+                            <a href="https://github.com/LsLct" class="project-link lang-fr" target="_blank" style="display:none;">
+                                <i class="fa-solid fa-link"></i> Plus d'infos
+                            </a>
                         </div>
-                        <a href="https://github.com/LsLct" class="project-link lang-en" target="_blank">
-                            <i class="fa-solid fa-link"></i> More details
-                        </a>
-                        <a href="https://github.com/LsLct" class="project-link lang-fr" target="_blank" style="display:none;">
-                            <i class="fa-solid fa-link"></i> Plus d'infos
-                        </a>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-item">
+                        <div class="project-icon"><i class="devicon-terraform-plain"></i></div>
+                        <div class="project-content">
+                            <h3 class="project-title lang-en">IaC with GitOps Workflow</h3>
+                            <h3 class="project-title lang-fr" style="display:none;">Infrastructure as Code, façon GitOps</h3>
+                            <p class="project-description lang-en">
+                                Developed a comprehensive IaC solution for OpenStack deployments using Terraform modules.<br />
+                                Structured code into reusable modules for enhanced readability and maintainability. VMs, load balancers, virtual networks and other infrastructure services.<br />
+                                Implemented GitOps workflow with GitLab CI/CD, tf-controller, and Flux CD for automated infrastructure provisioning and drift detection. 
+                            </p>
+                            <p class="project-description lang-fr" style="display:none;">
+                                Solution IaC complète pour les déploiements OpenStack via modules Terraform. Code structuré en modules réutilisables garantissant cohérence et maintenabilité. Machines virtuelles, load balancers, réseaux virtuels et autres services d'infrastructure.<br />
+                                Intégration à GitLab et utilisation de tf-controller et Flux CD pour automatiser les mises à jour d’infrastructure selon un workflow GitOps, garantissant des déploiements cohérents. 
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Terraform</span>
+                                <span class="tech-tag">OpenStack</span>
+                                <span class="tech-tag">Gitlab</span>
+                                <span class="tech-tag">Flux CD</span>
+                                <span class="tech-tag">GitOps</span>
+                            </div>
+                            <a href="https://github.com/LsLct" class="project-link lang-en" target="_blank">
+                                <i class="fa-solid fa-link"></i> More details
+                            </a>
+                            <a href="https://github.com/LsLct" class="project-link lang-fr" target="_blank" style="display:none;">
+                                <i class="fa-solid fa-link"></i> Plus d'infos
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-item">
+                        <div class="project-icon"><i class="devicon-powershell-plain"></i></div>
+                        <div class="project-content">
+                            <h3 class="project-title lang-en">Active Directory and OpenLDAP Account Synchronization</h3>
+                            <h3 class="project-title lang-fr" style="display:none;">Synchronisation d'annuaires OpenLDAP vers Active Directory</h3>
+                            <p class="project-description lang-en">
+                                Developed modular PowerShell scripts to synchronize over 60,000 user accounts from OpenLDAP to Active Directory, including account provisioning and lifecycle management with Kerberos authentication integration.<br />
+                                Implemented LDAP attribute-based group membership assignment and secure random password generation, ensuring seamless identity management across systems.
+                            </p>
+                            <p class="project-description lang-fr" style="display:none;">
+                                Scripts et modules PowerShell pour synchroniser plus de 60 000 comptes d'utilisateurs d’OpenLDAP vers Active Directory, avec création et gestion du cycle de vie des comptes, en prenant en charge l'authentification Kerberos externe, l'appartenance aux groupes selon des attributs LDAP, et la génération de mots de passe aléatoires.<br /> 
+                                Tout cela assurant une gestion des identité transparente entre les systèmes.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Powershell</span>
+                                <span class="tech-tag">Active Directory</span>
+                                <span class="tech-tag">OpenLDAP</span>
+                                <span class="tech-tag lang-en">Identity Management</span>
+                                <span class="tech-tag lang-fr" style="display:none;">Gestion d'identité</span>
+                                <span class="tech-tag">Kerberos</span>
+                            </div>
+                            <a href="https://github.com/LsLct" class="project-link lang-en" target="_blank">
+                                <i class="fa-solid fa-link"></i> More details
+                            </a>
+                            <a href="https://github.com/LsLct" class="project-link lang-fr" target="_blank" style="display:none;">
+                                <i class="fa-solid fa-link"></i> Plus d'infos
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-item">
+                        <div class="project-icon"><i class="devicon-ansible-plain"></i></div>
+                        <div class="project-content">
+                            <h3 class="project-title lang-en">Automated Application Deployment with Ansible</h3>
+                            <h3 class="project-title lang-fr" style="display:none;">Déploiement d'applications avec Ansible</h3>
+                            <p class="project-description lang-en">
+                                Some Ansible playbooks examples for automated deployment of web applications (iTop, GLPI) with complete infrastructure provisioning.<br/> 
+                                Handling base system configuration, dependency management, SSL certificate provisioning, and application customization.
+                            </p>
+                            <p class="project-description lang-fr" style="display:none;">
+                                Quelques exemples de recettes Ansible pour le déploiement automatisé d'applications web (iTop, GLPI) avec provisioning complet d'infrastructure. Gestion de la configuration système, des dépendances, des certificats SSL et de la personnalisation applicative.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Ansible</span>
+                                <span class="tech-tag lang-en">Configuration Management</span>
+                                <span class="tech-tag lang-fr" style="display:none;">Gestion de configuration</span>
+                                <span class="tech-tag lang-en">Web Applications</span>
+                                <span class="tech-tag lang-fr" style="display:none;">Applications Web</span>
+                                <span class="tech-tag">Apache</span>
+                                <span class="tech-tag">PHP</span>
+                                <span class="tech-tag">MariaDB</span>
+                            </div>
+                            <a href="https://github.com/LsLct" class="project-link lang-en" target="_blank">
+                                <i class="fa-solid fa-link"></i> More details
+                            </a>
+                            <a href="https://github.com/LsLct" class="project-link lang-fr" target="_blank" style="display:none;">
+                                <i class="fa-solid fa-link"></i> Plus d'infos
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-item">
+                        <div class="project-icon"><i class="fa-solid fa-wrench"></i></div>
+                        <div class="project-content">
+                            <h3 class="project-title lang-en">Troubleshooting example: RocketChat Data Recovery on Kubernetes</h3>
+                            <h3 class="project-title lang-fr" style="display:none;">Troubleshooting, exemple: Restauration de données perdues RocketChat sous K8s</h3>
+                            <p class="project-description lang-en">
+                                Executed critical data recovery operation following a production incident where RocketChat message retention was accidentally reduced from 6 to 1 month, resulting in 5 months of data loss.<br/> 
+                                Performed forensic analysis of MongoDB and Kubernetes persistent volume backups to recover lost messages and attachments, implementing seamless production restoration with zero downtime.
+                            </p>
+                            <p class="project-description lang-fr" style="display:none;">
+                                Récupération de données suite à un incident de production où la rétention des messages RocketChat est passée accidentellement de 6 à 1 mois, entraînant 5 mois de perte.<br/>  
+                                Analyse des sauvegardes MongoDB et des PV Kubernetes pour récupérer messages et pièces jointes perdus, avec restauration transparente en production sans interruption de service. 
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">Data Recovery</span>
+                                <span class="tech-tag">Bash</span>
+                                <span class="tech-tag">Kubernetes</span>
+                                <span class="tech-tag">RocketChat</span>
+                            </div>
+                            <a href="https://github.com/LsLct" class="project-link lang-en" target="_blank">
+                                <i class="fa-solid fa-link"></i> More details
+                            </a>
+                            <a href="https://github.com/LsLct" class="project-link lang-fr" target="_blank" style="display:none;">
+                                <i class="fa-solid fa-link"></i> Plus d'infos
+                            </a>
+                        </div>
+                        </div>
                     </div>
                 </div>
+            </section>
+            </div>
 
-                <!-- Project 2 -->
-                <div class="project-item">
-                    <div class="project-icon"><i class="devicon-terraform-plain"></i></div>
-                    <div class="project-content">
-                        <h3 class="project-title lang-en">IaC with GitOps Workflow</h3>
-                        <h3 class="project-title lang-fr" style="display:none;">Infrastructure as Code, façon GitOps</h3>
-                        <p class="project-description lang-en">
-                            Developed a comprehensive IaC solution for OpenStack deployments using Terraform modules.<br />
-                            Structured code into reusable modules for enhanced readability and maintainability. VMs, load balancers, virtual networks and other infrastructure services.<br />
-                            Implemented GitOps workflow with GitLab CI/CD, tf-controller, and Flux CD for automated infrastructure provisioning and drift detection. 
-                        </p>
-                        <p class="project-description lang-fr" style="display:none;">
-                            Solution IaC complète pour les déploiements OpenStack via modules Terraform. Code structuré en modules réutilisables garantissant cohérence et maintenabilité. Machines virtuelles, load balancers, réseaux virtuels et autres services d'infrastructure.<br />
-                            Intégration à GitLab et utilisation de tf-controller et Flux CD pour automatiser les mises à jour d’infrastructure selon un workflow GitOps, garantissant des déploiements cohérents. 
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Terraform</span>
-                            <span class="tech-tag">OpenStack</span>
-                            <span class="tech-tag">Gitlab</span>
-                            <span class="tech-tag">Flux CD</span>
-                            <span class="tech-tag">GitOps</span>
-                        </div>
-                        <a href="https://github.com/LsLct" class="project-link lang-en" target="_blank">
-                            <i class="fa-solid fa-link"></i> More details
-                        </a>
-                        <a href="https://github.com/LsLct" class="project-link lang-fr" target="_blank" style="display:none;">
-                            <i class="fa-solid fa-link"></i> Plus d'infos
-                        </a>
-                    </div>
-                </div>
+            <!-- Certifications Tab -->
+            <div class="tab-content" id="certifications">
+                <div class="content-wrapper">
+                    <h2 class="lang-en">Certifications</h2>
+                    <h2 class="lang-fr" style="display:none;">Certifications</h2>
 
-                <!-- Project 3 -->
-                <div class="project-item">
-                    <div class="project-icon"><i class="devicon-powershell-plain"></i></div>
-                    <div class="project-content">
-                        <h3 class="project-title lang-en">Active Directory and OpenLDAP Account Synchronization</h3>
-                        <h3 class="project-title lang-fr" style="display:none;">Synchronisation d'annuaires OpenLDAP vers Active Directory</h3>
-                        <p class="project-description lang-en">
-                            Developed modular PowerShell scripts to synchronize over 60,000 user accounts from OpenLDAP to Active Directory, including account provisioning and lifecycle management with Kerberos authentication integration.<br />
-                            Implemented LDAP attribute-based group membership assignment and secure random password generation, ensuring seamless identity management across systems.
-                        </p>
-                        <p class="project-description lang-fr" style="display:none;">
-                            Scripts et modules PowerShell pour synchroniser plus de 60 000 comptes d'utilisateurs d’OpenLDAP vers Active Directory, avec création et gestion du cycle de vie des comptes, en prenant en charge l'authentification Kerberos externe, l'appartenance aux groupes selon des attributs LDAP, et la génération de mots de passe aléatoires.<br /> 
-                            Tout cela assurant une gestion des identité transparente entre les systèmes.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Powershell</span>
-                            <span class="tech-tag">Active Directory</span>
-                            <span class="tech-tag">OpenLDAP</span>
-                            <span class="tech-tag lang-en">Identity Management</span>
-                            <span class="tech-tag lang-fr" style="display:none;">Gestion d'identité</span>
-                            <span class="tech-tag">Kerberos</span>
-                        </div>
-                        <a href="https://github.com/LsLct" class="project-link lang-en" target="_blank">
-                            <i class="fa-solid fa-link"></i> More details
-                        </a>
-                        <a href="https://github.com/LsLct" class="project-link lang-fr" target="_blank" style="display:none;">
-                            <i class="fa-solid fa-link"></i> Plus d'infos
-                        </a>
-                    </div>
-                </div>
+                    <!-- Current & In Progress -->
+                    <div class="cert-category">
+                        <h3 class="cert-category-title lang-en">Current & in progress</h3>
+                        <h3 class="cert-category-title lang-fr" style="display:none;">Actuelles et en cours</h3>
 
-                <!-- Project 4 -->
-                <div class="project-item">
-                    <div class="project-icon"><i class="devicon-ansible-plain"></i></div>
-                    <div class="project-content">
-                        <h3 class="project-title lang-en">Automated Application Deployment with Ansible</h3>
-                        <h3 class="project-title lang-fr" style="display:none;">Déploiement d'applications avec Ansible</h3>
-                        <p class="project-description lang-en">
-                            Some Ansible playbooks examples for automated deployment of web applications (iTop, GLPI) with complete infrastructure provisioning.<br/> 
-                            Handling base system configuration, dependency management, SSL certificate provisioning, and application customization.
-                        </p>
-                        <p class="project-description lang-fr" style="display:none;">
-                            Quelques exemples de recettes Ansible pour le déploiement automatisé d'applications web (iTop, GLPI) avec provisioning complet d'infrastructure. Gestion de la configuration système, des dépendances, des certificats SSL et de la personnalisation applicative.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Ansible</span>
-                            <span class="tech-tag lang-en">Configuration Management</span>
-                            <span class="tech-tag lang-fr" style="display:none;">Gestion de configuration</span>
-                            <span class="tech-tag lang-en">Web Applications</span>
-                            <span class="tech-tag lang-fr" style="display:none;">Applications Web</span>
-                            <span class="tech-tag">Apache</span>
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MariaDB</span>
+                        <div class="projects-list">
+                            <!-- AZ-900 -->
+                            <div class="project-item cert-item">
+                                <div class="project-icon cert-icon">
+                                    <i class="devicon-azure-plain"></i>
+                                </div>
+                                <div class="project-content">
+                                    <div class="cert-header">
+                                        <div>
+                                            <h3 class="project-title">Microsoft Azure Fundamentals (AZ-900)</h3>
+                                            <p class="cert-issuer">Microsoft</p>
+                                        </div>
+                                        <span class="cert-badge cert-obtained">
+                                            <i class="fa-solid fa-check-circle"></i>
+                                            <span class="lang-en">Obtained</span>
+                                            <span class="lang-fr" style="display:none;">Obtenue</span>
+                                        </span>
+                                    </div>
+                                    <p class="cert-date lang-en">
+                                        <i class="fa-regular fa-calendar"></i> Obtained: July 2025
+                                    </p>
+                                    <p class="cert-date lang-fr" style="display:none;">
+                                        <i class="fa-regular fa-calendar"></i> Obtenue : Juillet 2025
+                                    </p>
+                                    <p class="project-description lang-en">
+                                        Entry-level certification validating foundational knowledge of cloud concepts and core Azure services. 
+                                        Covers cloud architecture, Azure core services (compute, networking, storage), governance, security, compliance, privacy, and Azure pricing and support models.
+                                    </p>
+                                    <p class="project-description lang-fr" style="display:none;">
+                                        Certification d’introduction validant les connaissances fondamentales des concepts cloud et des services Azure principaux. 
+                                        Couvre l’architecture cloud, les services Azure de base (calcul, réseau, stockage), la gouvernance, la sécurité, la conformité, la confidentialité ainsi que les modèles de tarification et de support Azure.
+                                    </p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Azure</span>
+                                        <span class="tech-tag">Cloud Concepts</span>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <!-- AZ-104 -->
+                            <div class="project-item cert-item">
+                                <div class="project-icon cert-icon">
+                                    <i class="devicon-azure-plain"></i>
+                                </div>
+                                <div class="project-content">
+                                    <div class="cert-header">
+                                        <div>
+                                            <h3 class="project-title">Microsoft Azure Administrator Associate (AZ-104)</h3>
+                                            <p class="cert-issuer">Microsoft</p>
+                                        </div>
+                                        <span class="cert-badge cert-in-progress">
+                                            <i class="fa-solid fa-spinner"></i>
+                                            <span class="lang-en">In Progress</span>
+                                            <span class="lang-fr" style="display:none;">En Cours</span>
+                                        </span>
+                                    </div>
+                                    <p class="cert-date lang-en">
+                                        <i class="fa-regular fa-calendar"></i> Expected: January 2026
+                                    </p>
+                                    <p class="cert-date lang-fr" style="display:none;">
+                                        <i class="fa-regular fa-calendar"></i> Prévue : Janvier 2026
+                                    </p>
+                                    <p class="project-description lang-en">
+                                        Certification for Azure administrators. 
+                                        Validates the ability to implement, manage, and monitor an organization’s Azure environment, including virtual networks and compute, storage, identity (Microsoft Entra ID), security, governance, and disaster recovery solutions.
+                                    </p>
+                                    <p class="project-description lang-fr" style="display:none;">
+                                        Certification destinée aux administrateurs Azure. 
+                                        Valide la capacité à implémenter, gérer et superviser l’environnement Azure d’une organisation : réseaux virtuels, compute, stockage, identité (Microsoft Entra ID), sécurité, gouvernance et solutions de reprise / continuité d’activité.
+                                    </p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Azure</span>
+                                        <span class="tech-tag">Cloud Administration</span>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <!-- CKA -->
+                            <div class="project-item cert-item">
+                                <div class="project-icon cert-icon">
+                                    <i class="devicon-kubernetes-plain"></i>
+                                </div>
+                                <div class="project-content">
+                                    <div class="cert-header">
+                                        <div>
+                                            <h3 class="project-title">Certified Kubernetes Administrator (CKA)</h3>
+                                            <p class="cert-issuer">Cloud Native Computing Foundation (CNCF)</p>
+                                        </div>
+                                        <span class="cert-badge cert-in-progress">
+                                            <i class="fa-solid fa-spinner"></i>
+                                            <span class="lang-en">In Progress</span>
+                                            <span class="lang-fr" style="display:none;">En Cours</span>
+                                        </span>
+                                    </div>
+                                    <p class="cert-date lang-en">
+                                        <i class="fa-regular fa-calendar"></i> Expected: March 2026
+                                    </p>
+                                    <p class="cert-date lang-fr" style="display:none;">
+                                        <i class="fa-regular fa-calendar"></i> Prévue : Mars 2026
+                                    </p>
+                                    <p class="project-description lang-en">
+                                        Performance-based certification from the Cloud Native Computing Foundation (CNCF). 
+                                        Demonstrates advanced skills in Kubernetes cluster administration: installation and configuration, networking, storage, security, troubleshooting, workload management, and cluster maintenance in production environments.
+                                    </p>
+                                    <p class="project-description lang-fr" style="display:none;">
+                                        Certification pratique délivrée par la Cloud Native Computing Foundation (CNCF). 
+                                        Atteste des compétences avancées en administration de clusters Kubernetes : installation, configuration, réseau, stockage, sécurité, troubleshooting, gestion des workloads et maintenance de clusters en production.
+                                    </p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Kubernetes</span>
+                                        <span class="tech-tag">Container Orchestration</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <a href="https://github.com/LsLct" class="project-link lang-en" target="_blank">
-                            <i class="fa-solid fa-link"></i> More details
-                        </a>
-                        <a href="https://github.com/LsLct" class="project-link lang-fr" target="_blank" style="display:none;">
-                            <i class="fa-solid fa-link"></i> Plus d'infos
-                        </a>
                     </div>
-                </div>
+                
+                    <!-- Legacy Certifications -->
+                    <div class="cert-category cert-legacy">
+                        <h3 class="cert-category-title lang-en">Legacy certifications</h3>
+                        <h3 class="cert-category-title lang-fr" style="display:none;">Certifications historiques</h3>
 
-                <!-- Project 5 -->
-                <div class="project-item">
-                    <div class="project-icon"><i class="fa-solid fa-wrench"></i></div>
-                    <div class="project-content">
-                        <h3 class="project-title lang-en">Troubleshooting example: RocketChat Data Recovery on Kubernetes</h3>
-                        <h3 class="project-title lang-fr" style="display:none;">Troubleshooting, exemple: Restauration de données perdues RocketChat sous K8s</h3>
-                        <p class="project-description lang-en">
-                            Executed critical data recovery operation following a production incident where RocketChat message retention was accidentally reduced from 6 to 1 month, resulting in 5 months of data loss.<br/> 
-                            Performed forensic analysis of MongoDB and Kubernetes persistent volume backups to recover lost messages and attachments, implementing seamless production restoration with zero downtime.
-                        </p>
-                        <p class="project-description lang-fr" style="display:none;">
-                            Récupération de données suite à un incident de production où la rétention des messages RocketChat est passée accidentellement de 6 à 1 mois, entraînant 5 mois de perte.<br/>  
-                            Analyse des sauvegardes MongoDB et des PV Kubernetes pour récupérer messages et pièces jointes perdus, avec restauration transparente en production sans interruption de service. 
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Data Recovery</span>
-                            <span class="tech-tag">Bash</span>
-                            <span class="tech-tag">Kubernetes</span>
-                            <span class="tech-tag">RocketChat</span>
+                        <div class="projects-list">
+                            <!-- MCSA -->
+                            <div class="project-item cert-item">
+                                <div class="project-icon cert-icon cert-icon-legacy">
+                                    <i class="fa-brands fa-microsoft"></i>
+                                </div>
+                                <div class="project-content">
+                                    <div class="cert-header">
+                                        <div>
+                                            <h3 class="project-title">MCSA: Windows Server 2012 R2</h3>
+                                            <p class="cert-issuer">Microsoft</p>
+                                        </div>
+                                        <span class="cert-badge cert-legacy-badge">
+                                            <i class="fa-solid fa-archive"></i>
+                                            <span class="lang-en">Legacy</span>
+                                            <span class="lang-fr" style="display:none;">Historique</span>
+                                        </span>
+                                    </div>
+                                    <p class="cert-date lang-en">
+                                        <i class="fa-regular fa-calendar"></i> Obtained: July 2017
+                                    </p>
+                                    <p class="cert-date lang-fr" style="display:none;">
+                                        <i class="fa-regular fa-calendar"></i> Obtenue : Juillet 2017
+                                    <p class="project-description lang-en">
+                                        Certification demonstrating expertise in Windows Server 2012 R2 administration through three comprehensive exams: 70-410 (Installing and Configuring), 70-411 (Administering), and 70-412 (Configuring Advanced Services). Covered enterprise-grade Active Directory, advanced networking, Hyper-V, and complex infrastructure scenarios. This certification provided the foundation for my Windows Systems Engineer role (2018-2022).
+                                    </p>
+                                    <p class="project-description lang-fr" style="display:none;">
+                                        Certification démontrant l'expertise en administration Windows Server 2012 R2 via le passage de trois examens : 70-410 (Installation et Configuration), 70-411 (Administration) et 70-412 (Configuration des Services Avancés). Elle couvrait des sujets tels que l'Active Directory, les services réseaux, Hyper-V, et les scénarios d'infrastructure complexes. Cette certification a constitué le socle de mon rôle d'ingénieur systèmes Windows (2018-2022).
+                                    </p>
+                                    <div class="cert-note lang-en">
+                                        <i class="fa-solid fa-info-circle"></i> Note: Microsoft retired MCSA certifications in January 2021.
+                                    </div>
+                                    <div class="cert-note lang-fr" style="display:none;">
+                                        <i class="fa-solid fa-info-circle"></i> Note : Microsoft a retiré les certifications MCSA en janvier 2021.
+                                    </div>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Active Directory</span>
+                                        <span class="tech-tag">System Administration</span>
+                                        <span class="tech-tag">Windows Server</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <a href="https://github.com/LsLct" class="project-link lang-en" target="_blank">
-                            <i class="fa-solid fa-link"></i> More details
-                        </a>
-                        <a href="https://github.com/LsLct" class="project-link lang-fr" target="_blank" style="display:none;">
-                            <i class="fa-solid fa-link"></i> Plus d'infos
-                        </a>
-                    </div>
                     </div>
                 </div>
             </div>
-        </section>
+
+            <!-- Career Tab -->
+            <div class="tab-content" id="career">
+                <div class="content-wrapper">
+                    <h2 class="lang-en">Career Path</h2>
+                    <h2 class="lang-fr" style="display:none;">Parcours Professionnel</h2>
+                    <div class="timeline">
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2024/12 - 2025/12</div>
+                        <h3 class="timeline-title lang-en">Professionnal pause</h3>
+                        <h3 class="timeline-title lang-fr" style="display:none;">Pause professionnelle</h3>
+                        <div class="timeline-company lang-en">France | Indonesia</div>
+                        <div class="timeline-company lang-fr" style="display:none;">France | Indonesie</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2022/04 - 2024/12</div>
+                        <h3 class="timeline-title lang-en">Cloud & DevOps Engineer</h3>
+                        <h3 class="timeline-title lang-fr" style="display:none;">Ingénieur Cloud & DevOps</h3>
+                        <div class="timeline-company lang-en">University of Bordeaux, Bordeaux, France</div>
+                        <div class="timeline-company lang-fr" style="display:none;">Université de Bordeaux, Bordeaux, France</div>
+                    </div>
+
+                    <!-- Experience 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2018/04 - 2022/04</div>
+                        <h3 class="timeline-title lang-en">Windows Systems Engineer</h3>
+                        <h3 class="timeline-title lang-fr" style="display:none;">Ingénieur Systèmes Windows</h3>
+                        <div class="timeline-company lang-en">University of Bordeaux, Bordeaux, France</div>
+                        <div class="timeline-company lang-fr" style="display:none;">Université de Bordeaux, Bordeaux, France</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2018/03 - 2018/04</div>
+                        <h3 class="timeline-title lang-en">IT Administrator</h3>
+                        <h3 class="timeline-title lang-fr" style="display:none;">Administrateur systèmes</h3>
+                        <div class="timeline-company">Capgemini, Bordeaux, France</div>
+                    </div>                    
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2016/09 - 2017/09</div>
+                        <h3 class="timeline-title lang-en">IT Administrator</h3>
+                        <h3 class="timeline-title lang-fr" style="display:none;">Administrateur systèmes</h3>
+                        <div class="timeline-company">SB2P / IDCSOFT, Bordeaux, France</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
         <div class="container">
             <p>
-                &copy; 2025 Louis Lecat | Made with some help from Claude: honest guy here 🙂 | All rights reserved.
+                &copy; 2025 Louis Lecat | Made with some help from Claude: honest guy here 😉 | No rights reserved.
             </p>
         </div>
     </footer>
-
-    <script>
-        function setLang(lang) {
-            document.documentElement.lang = lang;
-            localStorage.setItem('lang', lang);
-            document.querySelectorAll('.lang-en').forEach(el => el.style.display = (lang === 'en' ? '' : 'none'));
-            document.querySelectorAll('.lang-fr').forEach(el => el.style.display = (lang === 'fr' ? '' : 'none'));
-            document.querySelectorAll('.language-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.lang === lang);
-            });
-        }
-        document.querySelectorAll('.language-btn').forEach(btn => {
-            btn.addEventListener('click', () => setLang(btn.dataset.lang));
-        });
-        (function() {
-            let lang = localStorage.getItem('lang') || 'en';
-            setLang(lang);
-        })();
-    </script>
+    
+    <!-- Scripts -->
+    <script src="./js/main.js"></script>
 </body>
 </html>

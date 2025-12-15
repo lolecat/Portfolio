@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Louis Lecat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #061452 0%, #0c4b68 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .controls {
+            max-width: 850px;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #061452, #0c4b68);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn.active {
+            background: #4f46e5;
+        }
+
+        /* CV Container */
+        .cv-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
+            padding: 40px 50px;
+        }
+
+        /* Header */
+        .cv-header {
+            border-bottom: 3px solid #061452;
+            padding-bottom: 20px;
+            margin-bottom: 15px;
+        }
+
+        .cv-name {
+            font-size: 32px;
+            font-weight: bold;
+            color: #061452;
+            margin-bottom: 5px;
+        }
+
+        .cv-title {
+            font-size: 18px;
+            color: #0c4b68;
+            margin-bottom: 5px;
+        }
+
+        .cv-tagline {
+            font-size: 13px;
+            color: #667;
+        }
+
+        /* Contact */
+        .cv-contact {
+            font-size: 11px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .cv-contact p {
+            margin-bottom: 2px;
+        }
+
+        /* Section Titles */
+        .cv-section-title {
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #061452;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+            margin-top: 20px;
+        }
+
+        .cv-section-title:first-of-type {
+            margin-top: 0;
+        }
+
+        /* Summary */
+        .cv-summary {
+            font-size: 11px;
+            color: #555;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        /* Experience */
+        .cv-job {
+            margin-bottom: 18px;
+        }
+
+        /* Grid layout for job header: 2 rows x 2 columns */
+        .cv-job-grid {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            row-gap: 0.1px;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .cv-job-company {
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .cv-job-title {
+            font-size: 11px;
+            color: #555;
+        }
+
+        .cv-job-location {
+            font-size: 11px;
+            color: #667;
+            white-space: nowrap;
+        }
+
+        .cv-job-period {
+            font-size: 10px;
+            color: #777;
+        }
+
+        .cv-job-bullets {
+            list-style-position: outside;
+            margin-left: 18px;
+        }
+
+        .cv-job-bullets li {
+            font-size: 11px;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 4px;
+            text-align: justify;
+        }
+
+        /* Skills */
+        .cv-skills {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px 15px;
+            font-size: 11px;
+            margin-bottom: 15px;
+        }
+
+        .cv-skill-item {
+            color: #555;
+        }
+
+        .cv-skill-label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Certifications */
+        .cv-certifications {
+            list-style-position: outside;
+            margin-left: 18px;
+            margin-bottom: 15px;
+        }
+
+        .cv-certification-title {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .cv-certifications li {
+            font-size: 11px;
+            color: #555;
+            margin-bottom: 3px;
+        }
+
+        /* Education */
+        .cv-education {
+            font-size: 11px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .cv-education-degree {
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Back to Portfolio Link */
+        .back-link {
+            max-width: 850px;
+            margin: 20px auto 0;
+            text-align: center;
+        }
+
+        .back-link a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .back-link a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Print Styles */
+        @media print {
+            /* Hide everything except the CV container */
+            body {
+                background: white !important;
+                padding: 0 !important;
+                word-spacing: -0.03em !important; /* Reduce spacing between words */
+                letter-spacing: -0.01em !important; /* Reduce letter spacing */
+                font-size: 12px !important; /* Increase content font size */
+            }
+
+            .controls,
+            .back-link {
+                display: none !important;
+            }
+
+            .cv-container {
+                box-shadow: none !important;
+                padding: 28px 35px !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+            }
+
+            @page {
+                size: A4;
+                margin: 0.2cm 0.3cm 0.3cm 0.3cm;
+            }
+
+            /* Reduce spacing between title and separator */
+            .cv-title {
+                margin-bottom: 2px !important;
+            }
+
+            /* Force 2 columns for skills in print */
+            .cv-skills {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 5px 15px !important;
+            }
+
+            /* Maintain grid layout for job headers */
+            .cv-job-grid {
+                display: grid !important;
+                grid-template-columns: 1fr auto !important;
+                row-gap: 0.1px !important;
+                align-items: baseline !important;
+                margin-bottom: 10px !important;
+            }
+
+            /* Keep periods and locations on one line */
+            .cv-job-location, 
+            .cv-job-period {
+                white-space: nowrap !important;
+            }
+
+            /* Reduce spacing for print and between section titles and content */
+            .cv-section-title {
+                margin-top: 12px !important;
+                margin-bottom: 8px !important;
+            }
+
+            .cv-job {
+                margin-bottom: 12px !important;
+            }
+
+            .cv-job-bullets li {
+                margin-bottom: 3px !important;
+            }
+
+            .cv-header {
+                margin-bottom: 12px !important;
+                padding-bottom: 12px !important;
+            }
+
+            .cv-contact {
+                margin-bottom: 12px !important;
+            }
+
+            .cv-summary {
+                margin-bottom: 12px !important;
+            }
+
+            .cv-skills {
+                margin-bottom: 12px !important;
+            }
+
+            .cv-certifications {
+                margin-bottom: 10px !important;
+            }
+
+            .cv-education {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cv-container {
+                padding: 30px 20px;
+            }
+
+            .cv-name {
+                font-size: 26px;
+            }
+
+            .cv-job-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cv-skills {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Language Toggle */
+        .lang-en, .lang-fr {
+            display: none;
+        }
+
+        .lang-en.active, .lang-fr.active {
+            display: block;
+        }
+
+        .lang-en.active.inline, .lang-fr.active.inline {
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Controls -->
+    <div class="controls">
+        <button class="btn" id="lang-btn" onclick="toggleLanguage()">
+            <i class="fas fa-globe"></i>
+            <span id="lang-text">Français</span>
+        </button>
+        <button class="btn" onclick="window.print()">
+            <i class="fas fa-download"></i>
+            <span class="lang-en active">Download as PDF</span>
+            <span class="lang-fr">Télécharger en PDF</span>
+        </button>
+    </div>
+
+    <!-- CV Content -->
+    <div class="cv-container">
+        <!-- Header -->
+        <div class="cv-header">
+            <h1 class="cv-name">LOUIS LECAT</h1>
+            <h2 class="cv-title lang-en active">Cloud & DevOps Engineer</h2>
+            <h2 class="cv-title lang-fr">Ingénieur Cloud & DevOps</h2>
+        </div>
+
+        <!-- Contact -->
+        <div class="cv-contact">
+            <p class="lang-en active">France - Open to relocation</p>
+            <p class="lang-fr">France - Ouvert à relocalisation</p>
+            <p><i>louis.lecat@proton.me</i> | <i>linkedin.com/in/lolecat</i> | <i>github.com/lolecat</i> | <i>lolecat.me</i></p>
+        </div>
+
+        <!-- Summary -->
+        <div>
+            <h3 class="cv-section-title lang-en active">SUMMARY</h3>
+            <h3 class="cv-section-title lang-fr">À PROPOS</h3>
+            <p class="cv-summary lang-en active">
+                French Cloud and DevOps Engineer with 6+ years of experience managing large-scale infrastructure for 60,000+ users at the University of Bordeaux.<br>
+                Specialized in Kubernetes orchestration, Infrastructure as Code (Terraform), Powershell scripting, CI/CD automation, and Azure cloud services, with a proven track record deploying containerized applications and automating complex infrastructures.<br>
+                I'm currently pursuing AZ-104 and CKA certifications, and looking for remote opportunities worldwide. Open to relocation.
+            </p>
+            <p class="cv-summary lang-fr">
+                Ingénieur Cloud et DevOps avec 6+ années d'expérience dans la gestion d'infras. à grande échelle - 60 000+ utilisateurs, Université de Bordeaux.<br>
+                Orchestration Kubernetes, Infrastructure as Code (Terraform), automatisation CI/CD et services cloud Azure, expérience avérée dans le déploiement d'applications conteneurisées et l'automatisation d'infrastructures complexes. 
+                Je prépare actuellement les certifications Azure AZ-104 et Kubernetes CKA, et suis à la recherche d'opportunités à distance à l'internatinal. Ouvert à la relocalistation.
+            </p>
+        </div>
+
+        <!-- Experience -->
+        <div>
+            <h3 class="cv-section-title lang-en active">WORK EXPERIENCE</h3>
+            <h3 class="cv-section-title lang-fr">EXPÉRIENCES PROFESSIONNELLES</h3>
+
+            <!-- Job 1 -->
+            <div class="cv-job">
+                <div class="cv-job-grid">
+                    <div>
+                        <span class="cv-job-company lang-en active inline">University of Bordeaux - IT Department</span>
+                        <span class="cv-job-company lang-fr inline">Université de Bordeaux - DSI</span>
+                    </div>
+                    <span class="cv-job-location">Bordeaux, France</span>
+
+                    <div>
+                        <span class="cv-job-title lang-en active">DevOps Engineer</span>
+                        <span class="cv-job-title lang-fr">Ingénieur DevOps</span>
+                    </div>
+                    <div>
+                        <span class="cv-job-period lang-en active"><i>April 2022 - December 2024</i></span>
+                        <span class="cv-job-period lang-fr"><i>Avril 2022 - Décembre 2024</i></span>
+                    </div>
+                </div>
+
+                <ul class="cv-job-bullets lang-en active">
+                    <li>Containerized and deployed legacy and new applications to Kubernetes clusters (dev/stag/prod) using Gitlab CI, Helm and FluxCD</li>
+                    <li>Developed reusable Terraform modules for multi-environment IaaS deployments on OpenStack (VMs, networks, K8s clusters infrastructures), implementing GitOps workflow with tf-controller for automated provisioning</li>
+                    <li>Deployed ITSM applications serving 1,000+ concurrent users, managing full stack from IaaS creation (Terraform/OpenStack) to application configuration (Ansible)</li>
+                    <li>Ensured operational continuity and system reliability through Prometheus/Grafana monitoring (40+ services, 600+ servers), proactive troubleshooting of Linux servers and databases (MongoDB, MariaDB, PostgreSQL), certificate management, and data migrations</li>
+                </ul>
+                <ul class="cv-job-bullets lang-fr">
+                    <li>Conteneurisation et déploiement d'applications existantes et nouvelles sur des clusters Kubernetes (dev/stag/prod) via Gitlab CI, Helm et FluxCD</li>
+                    <li>Développement de modules Terraform réutilisables pour déploiements IaaS multi-environnements sur OpenStack (VMs, réseaux, infrastructure de clusters K8s), implémentation d'un workflow GitOps avec tf-controller pour provisionnement automatisé</li>
+                    <li>Déploiement d'applications ITSM desservant 1000+ utilisateurs simultanés, gestion complète de la création IaaS (Terraform/OpenStack) à la configuration applicative (Ansible)</li>
+                    <li>Maintien de la continuité opérationnelle et de la fiabilité des systèmes via stack Prometheus/Grafana (40+ services, 600+ serveurs), troubleshooting de serveurs Linux et bases de données (MongoDB, MariaDB, PostgreSQL), gestion des certificats et migrations de données</li>
+                </ul>
+            </div>
+
+            <!-- Job 2 -->
+            <div class="cv-job">
+                <div class="cv-job-grid">
+                    <div>
+                        <span class="cv-job-company lang-en active inline">University of Bordeaux - IT Department</span>
+                        <span class="cv-job-company lang-fr inline">Université de Bordeaux - DSI</span>
+                    </div>
+                    <span class="cv-job-location">Bordeaux, France</span>
+
+                    <div>
+                        <span class="cv-job-title lang-en active">Windows Systems Engineer</span>
+                        <span class="cv-job-title lang-fr">Ingénieur Systèmes Windows</span>
+                    </div>
+                    <div>
+                        <span class="cv-job-period lang-en active"><i>April 2018 - April 2022</i></span>
+                        <span class="cv-job-period lang-fr"><i>Avril 2018 - Avril 2022</i></span>
+                    </div>
+                </div>
+
+                <ul class="cv-job-bullets lang-en active">
+                    <li>Designed and deployed unified Active Directory domain following merger of 3 universities, consolidating 6 legacy domains and establishing centralized administration policies for 60,000+ users</li>
+                    <li>Designed and planned DFS architecture for 60,000+ users, defining security policies, namespace structures and directory hierarchies</li>
+                    <li>Migrated 20+ TB of production data (including critical) to DFS and administered 34TB across 6 file servers serving 5,000+ users with 2,000+ daily active sessions</li>
+                    <li>Automated identity lifecycle management via PowerShell scripts for OpenLDAP-to-AD synchronization (twice-daily processing of 70k+ accounts), group-based access control through LDAP/Grouper integration, and Kerberos cross-realm authentication</li>
+                    <li>Deployed Remote Desktop Services and RemoteApp infrastructure, delivered level 3 support and automated administrative tasks</li>
+                </ul>
+                <ul class="cv-job-bullets lang-fr">
+                    <li>Conception et déploiement d'un domaine Active Directory unifié suite à la fusion de 3 universités, consolidation de 6 domaines existants et mise en place de politiques d'administration centralisées pour 60 000+ utilisateurs</li>
+                    <li>Conception et planification d'une architecture DFS pour 60 000+ utilisateurs, incluant la définition des politiques de sécurité, structure des namespaces et des arborescences</li>
+                    <li>Migration de 20+ To de données de production (dont critiques) vers DFS et administration continue de 34To sur 6 serveurs desservant 5 000+ utilisateurs avec 2 000+ sessions actives quotidiennes</li>
+                    <li>Automatisation de la gestion du cycle de vie des identités via scripts PowerShell pour synchronisation OpenLDAP vers AD (traitement bi-quotidien de 70k+ comptes), contrôle d'accès dynamique basé sur groupes via intégration LDAP/Grouper, et authentification cross-realm Kerberos</li>
+                    <li>Déploiement d'une infrastructure de Services Bureau à distance et RemoteApp, support niveau 3 et automatisation des tâches administratives</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <div>
+            <h3 class="cv-section-title lang-en active">TECHNICAL SKILLS</h3>
+            <h3 class="cv-section-title lang-fr">COMPÉTENCES TECHNIQUES</h3>
+            <div class="cv-skills">
+                <p class="cv-skill-item"><span class="cv-skill-label">Cloud platforms:</span> Azure, OpenStack</p>
+                <p class="cv-skill-item"><span class="cv-skill-label">Containers orchestration:</span> Kubernetes, Docker, Helm, Flux CD</p>
+                <p class="cv-skill-item"><span class="cv-skill-label">IaC / Configuration management:</span> Terraform, Ansible</p>
+                <p class="cv-skill-item"><span class="cv-skill-label">CI/CD:</span> GitLab CI/CD, GitOps</p>
+                <p class="cv-skill-item"><span class="cv-skill-label">Monitoring:</span> Prometheus, Grafana, AlertManager</p>
+                <p class="cv-skill-item"><span class="cv-skill-label">Systems:</span> Linux, Windows Server, Active Directory</p>
+                <p class="cv-skill-item"><span class="cv-skill-label">Scripting:</span> PowerShell, Python, Bash</p>
+                <p class="cv-skill-item"><span class="cv-skill-label">Databases:</span> MongoDB, PostgreSQL, MariaDB, MySQL</p>
+            </div>
+        </div>
+
+        <!-- Certifications -->
+        <div>
+            <h3 class="cv-section-title lang-en active">CERTIFICATIONS</h3>
+            <h3 class="cv-section-title lang-fr">CERTIFICATIONS</h3>
+            <ul class="cv-certifications lang-en active">
+                <li>AZ-900 : Microsoft Azure Fundamentals - <i>July 2025</i></li>
+                <li>AZ-104 : Microsoft Azure Administrator Associate (AZ-104) - <i>In Progress (Expected January 2026)</i></li>
+                <li>CKA : Certified Kubernetes Administrator (CKA) - <i>In Progress (Expected March 2026)</i></li>
+                <li>MCSA Windows Server 2012 R2 : Exams 70-410, 70-411 and 70-412 - <i>July 2017</i></li>
+            </ul>
+            <ul class="cv-certifications lang-fr">
+                <li>Azure Fundamentals (AZ-900) - <i>Juillet 2025</i></li>
+                <li>Microsoft Azure Administrator Associate (AZ-104) - <i>En cours (Prévue Janvier 2026)</i></li>
+                <li>Certified Kubernetes Administrator (CKA) - <i>En cours (Prévue Mars 2026)</i></li>
+                <li>MCSA Windows Server 2012 R2 (Exams 70-410, 70-411 et 70-412) - <i>Juillet 2017</i></li>
+            </ul>
+        </div>
+
+        <!-- Education -->
+        <div>
+            <h3 class="cv-section-title lang-en active">EDUCATION</h3>
+            <h3 class="cv-section-title lang-fr">FORMATION</h3>
+            <p class="cv-education lang-en active">
+                <span class="cv-education-degree">Master's Degree in Computer Science (M2)</span> - 2017 - <i>Bordeaux, France</i>
+            </p>
+            <p class="cv-education lang-fr">
+                <span class="cv-education-degree">Expert en Informatique et Systèmes d'Information (RNCP niveau 7)</span> - 2017 - <i>Bordeaux Ynov Campus</i>
+            </p>
+        </div>
+    </div>
+
+    <!-- Back to Portfolio -->
+    <div class="back-link">
+        <a href="../index.html">
+            <i class="fas fa-arrow-left"></i>
+            <span class="lang-en active">Back to Portfolio</span>
+            <span class="lang-fr">Retour au Portfolio</span>
+        </a>
+    </div>
+
+    <script>
+        let currentLang = localStorage.getItem('cv-lang') || 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'fr' : 'en';
+            localStorage.setItem('cv-lang', currentLang);
+            updateLanguage();
+        }
+
+        function updateLanguage() {
+            // Update all language elements
+            document.querySelectorAll('.lang-en').forEach(el => {
+                if (currentLang === 'en') {
+                    el.classList.add('active');
+                    if (el.classList.contains('inline')) {
+                        el.style.display = 'inline';
+                    }
+                } else {
+                    el.classList.remove('active');
+                    if (el.classList.contains('inline')) {
+                        el.style.display = 'none';
+                    }
+                }
+            });
+
+            document.querySelectorAll('.lang-fr').forEach(el => {
+                if (currentLang === 'fr') {
+                    el.classList.add('active');
+                    if (el.classList.contains('inline')) {
+                        el.style.display = 'inline';
+                    }
+                } else {
+                    el.classList.remove('active');
+                    if (el.classList.contains('inline')) {
+                        el.style.display = 'none';
+                    }
+                }
+            });
+
+            // Update button text
+            document.getElementById('lang-text').textContent = currentLang === 'en' ? 'Français' : 'English';
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = currentLang;
+        }
+
+        // Initialize on page load
+        updateLanguage();
+    </script>
+</body>
+</html>
