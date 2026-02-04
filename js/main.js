@@ -1,37 +1,176 @@
-// Language Switcher
-// This script handles the language switching functionality
-// It sets the language based on user selection and stores it in localStorage
-
+// === Language Switcher ===
 function setLang(lang) {
     document.documentElement.lang = lang;
     localStorage.setItem('lang', lang);
-    document.querySelectorAll('.lang-en').forEach(el => el.style.display = (lang === 'en' ? '' : 'none'));
-    document.querySelectorAll('.lang-fr').forEach(el => el.style.display = (lang === 'fr' ? '' : 'none'));
+
+    document.querySelectorAll('.lang-en').forEach(el => {
+        el.style.display = (lang === 'en' ? '' : 'none');
+    });
+    document.querySelectorAll('.lang-fr').forEach(el => {
+        el.style.display = (lang === 'fr' ? '' : 'none');
+    });
     document.querySelectorAll('.language-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);
     });
 }
+
+// Initialize language switcher
 document.querySelectorAll('.language-btn').forEach(btn => {
     btn.addEventListener('click', () => setLang(btn.dataset.lang));
 });
-(function () {
-    let lang = localStorage.getItem('lang') || 'en';
-    setLang(lang);
+
+// Set initial language
+(function initLang() {
+    const savedLang = localStorage.getItem('lang') || 'en';
+    setLang(savedLang);
 })();
 
 
-// Tabs System
-// This script handles the tab switching functionality
-// It adds event listeners to tab buttons and toggles active classes
+// === Theme Switcher ===
+function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
 
-document.querySelectorAll('.tab-button').forEach(button => {
-    button.addEventListener('click', () => {
-        // Remove active class from all buttons and contents
-        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-
-        // Add active class to clicked button and corresponding content
-        button.classList.add('active');
-        document.getElementById(button.dataset.tab).classList.add('active');
+    // Update active state on buttons
+    document.querySelectorAll('.theme-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.theme === theme);
     });
+}
+
+// Initialize theme switcher
+document.querySelectorAll('.theme-btn').forEach(btn => {
+    btn.addEventListener('click', () => setTheme(btn.dataset.theme));
+});
+
+// Set initial theme
+(function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'cafe';
+    setTheme(savedTheme);
+})();
+
+
+// === Section Navigation ===
+function showSection(sectionId) {
+    // Update nav tabs
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.classList.toggle('active', tab.dataset.section === sectionId);
+    });
+
+    // Update sections
+    document.querySelectorAll('.section').forEach(section => {
+        const isActive = section.id === sectionId;
+        section.classList.toggle('active', isActive);
+
+        // Re-trigger animation on activation
+        if (isActive) {
+            section.style.animation = 'none';
+            section.offsetHeight; // Trigger reflow
+            section.style.animation = '';
+        }
+    });
+
+    // Save to localStorage
+    localStorage.setItem('activeSection', sectionId);
+
+    // Scroll to top of content area
+    document.querySelector('.content-area')?.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Initialize section navigation
+document.querySelectorAll('.nav-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        showSection(tab.dataset.section);
+    });
+});
+
+// Restore last active section or default to 'about'
+(function initSection() {
+    const savedSection = localStorage.getItem('activeSection') || 'about';
+    showSection(savedSection);
+})();
+
+
+// === Keyboard Navigation ===
+document.addEventListener('keydown', (e) => {
+    // Only handle if not in an input field
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+    const sections = ['about', 'services', 'projects', 'certifications', 'career'];
+    const currentIndex = sections.findIndex(s =>
+        document.getElementById(s)?.classList.contains('active')
+    );
+
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        const nextIndex = (currentIndex + 1) % sections.length;
+        showSection(sections[nextIndex]);
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        const prevIndex = (currentIndex - 1 + sections.length) % sections.length;
+        showSection(sections[prevIndex]);
+    }
+
+    // Number keys 1-5 for quick section access
+    const numKey = parseInt(e.key);
+    if (numKey >= 1 && numKey <= 5) {
+        showSection(sections[numKey - 1]);
+    }
+});
+
+
+// === Intersection Observer for animations ===
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+};
+
+const animateOnScroll = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe cards for scroll animation
+document.querySelectorAll('.glass-card, .timeline-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    animateOnScroll.observe(el);
+});
+
+
+// === Smooth hover effects for skill icons ===
+document.querySelectorAll('.skill-icon').forEach(icon => {
+    icon.addEventListener('mouseenter', function() {
+        const title = this.getAttribute('title');
+        if (title) {
+            this.setAttribute('data-tooltip', title);
+        }
+    });
+});
+
+
+// === Prefers reduced motion ===
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+if (prefersReducedMotion.matches) {
+    document.documentElement.style.setProperty('--transition-fast', '0s');
+    document.documentElement.style.setProperty('--transition-normal', '0s');
+    document.documentElement.style.setProperty('--transition-slow', '0s');
+}
+
+prefersReducedMotion.addEventListener('change', () => {
+    if (prefersReducedMotion.matches) {
+        document.documentElement.style.setProperty('--transition-fast', '0s');
+        document.documentElement.style.setProperty('--transition-normal', '0s');
+        document.documentElement.style.setProperty('--transition-slow', '0s');
+    } else {
+        document.documentElement.style.removeProperty('--transition-fast');
+        document.documentElement.style.removeProperty('--transition-normal');
+        document.documentElement.style.removeProperty('--transition-slow');
+    }
 });

@@ -3,514 +3,799 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Louis Lecat</title>
+    <title>Louis Lecat | Cloud & DevOps</title>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" /> 
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <!-- Internal CSS -->
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <header>
+    <!-- Background Effects -->
+    <div class="bg-pattern"></div>
+
+    <!-- Top Controls (Language Switcher) -->
+    <div class="top-controls">
         <div class="language-switcher">
             <button class="language-btn" data-lang="en">EN</button>
             <button class="language-btn" data-lang="fr">FR</button>
         </div>
-        <div class="container">
-            <div class="profile-image">
-                <img src="./images/pic.png" alt="LL">
-            </div>
-            <!-- Sans photo, avec initiales (commenté) -->
-            <!-- <div class="profile-image no-image">LL</div> -->
-            <h1>Louis Lecat</h1>
-            <p class="subtitle lang-en">Cloud & DevOps Engineer</p>
-            <p class="subtitle lang-fr" style="display:none;">Ingénieur Cloud et DevOps</p>
-            <div class="contact-links">
-                <a href="mailto:louis.lecat@proton.me" class="contact-link">
-                    <i class="fa-solid fa-envelope"></i> Contact
-                </a>
-                <a href="./cv/index.html" class="contact-link">
-                    <i class="fa-solid fa-file-pdf"></i> CV
-                </a>
-                <a href="https://github.com/lolecat" class="contact-link" target="_blank">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                <a href="https://www.linkedin.com/in/lolecat/" class="contact-link" target="_blank">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                <a href="https://x.com/lolecat_" class="contact-link" target="_blank">
-                    <i class="fa-brands fa-square-x-twitter"></i> X / Twitter
-                </a>
-            </div>
-        </div>
-    </header>
+    </div>
 
-    <main class="container">
-        <section class="about">
-            <!-- <h3 style="text-align: center;" class="lang-en">Portfolio under construction 🚧⏳</h3> -->
-            <!-- <h3 style="text-align: center; display:none;" class="lang-fr">Portfolio en construction 🚧⏳</h3> -->
-            <h2 class="lang-en">About</h2>
-            <h2 class="lang-fr" style="display:none;">À propos</h2>
-            <p class="lang-en">
-                With over 6 years at the University of Bordeaux’s IT Department, I evolved from a Windows Systems Administrator to a DevOps Engineer, managing complex infrastructures and deployments for thousands of users. 
-                My skills cover automation, container orchestration and CI/CD, Linux/Windows systems, Infrastructure as Code, Azure, and Active Directory ecosystem. 
-            </p>
-            <p class="lang-fr" style="display:none;">
-                Avec plus de 6 ans à la DSI de l’Université de Bordeaux, j’ai évolué d’Administrateur Systèmes Windows à Ingénieur DevOps, gérant des infrastructures et déploiements complexes pour des milliers d’utilisateurs. 
-                Mes compétences couvrent l’automatisation, l’orchestration de conteneurs et le CI/CD, les systèmes Linux et Windows, Azure, et l'écosystème Active Directory. 
-            </p>
-            <p class="lang-en">
-                Currently enhancing my Cloud and DevOps expertise by pursuing Azure AZ-104 and Kubernetes CKA certifications, while exploring AI solution integration. I’m seeking remote freelance or full-time roles worldwide.
-            </p>
-            <p class="lang-fr" style="display:none;">
-                Aujourd’hui, j'approfondis mes compétences Cloud et DevOps en travaillant les certifications Azure AZ-104, Kubernetes CKA, et explore l'intégration de solutions IA. 
-                Je cherche des opportunités en télétravail (freelance ou salarié) en France ou à l’international. 
-            </p>
-            <!--
-            <div class="skills">
-                <span class="skill-tag">Cloud</span>
-                <span class="skill-tag">IaC</span>
-                <span class="skill-tag">DevOps</span>
-                <span class="skill-tag lang-en">Automation</span>
-                <span class="skill-tag lang-fr" style="display:none;">Automatisation</span>
-                <span class="skill-tag lang-en">System Administration</span>
-            </div>
-            -->
-        </section>
+    <div class="app-layout">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <!-- Terminal Window Header -->
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot dot-red"></span>
+                        <span class="dot dot-yellow"></span>
+                        <span class="dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">profile.sh</span>
+                </div>
 
-        <div class="tabs-container">
-            <div class="tabs-nav">
-                <button class="tab-button active" data-tab="projects">
+                <!-- Profile Section -->
+                <div class="profile-section">
+                    <div class="profile-image">
+                        <img src="./images/pic.png" alt="Louis Lecat">
+                        <div class="profile-status"></div>
+                    </div>
+                    <h1 class="profile-name">Louis Lecat</h1>
+                    <p class="profile-title lang-en">Cloud & DevOps Engineer</p>
+                    <p class="profile-title lang-fr" style="display:none;">Ingénieur Cloud & DevOps</p>
+                </div>
+
+                <!-- Social Links -->
+                <div class="social-links">
+                    <a href="mailto:louis.lecat@proton.me" class="social-link" title="Email">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                    <a href="./cv/index.html" class="social-link" title="CV">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </a>
+                    <a href="https://github.com/lolecat" class="social-link" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/lolecat/" class="social-link" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://x.com/lolecat_" class="social-link" target="_blank" title="X / Twitter">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                </div>
+
+                <!-- Terminal Command Style -->
+                <div class="terminal-location">
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">location</span>
+                    </div>
+                    <div class="output">
+                        <span class="lang-en">France | Indonesia</span>
+                        <span class="lang-fr" style="display:none;">France | Indonésie</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">status</span>
+                    </div>
+                    <div class="output status-output">
+                        <span class="status-dot"></span>
+                        <span class="lang-en">Open to opportunities</span>
+                        <span class="lang-fr" style="display:none;">Ouvert aux opportunités</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">echo $QUOTE</span>
+                    </div>
+                    <div class="output quote-output">
+                        <span>"Simplicity is the final achievement."</span>
+                        <span class="quote-author">— F. Chopin</span>
+                    </div>
+                </div>
+
+                <!-- Theme Switcher -->
+                <div class="theme-switcher">
+                    <button class="theme-btn" data-theme="cafe">
+                        <i class="fa-solid fa-mug-hot"></i>
+                    </button>
+                    <button class="theme-btn" data-theme="moon">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <!-- Navigation Tabs -->
+            <nav class="nav-tabs">
+                <button class="nav-tab active" data-section="about">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="lang-en">About</span>
+                    <span class="lang-fr" style="display:none;">À propos</span>
+                </button>
+                <button class="nav-tab" data-section="services">
+                    <i class="fa-solid fa-handshake"></i>
+                    <span class="lang-en">Services</span>
+                    <span class="lang-fr" style="display:none;">Services</span>
+                </button>
+                <button class="nav-tab" data-section="projects">
+                    <i class="fa-solid fa-code"></i>
                     <span class="lang-en">Projects</span>
                     <span class="lang-fr" style="display:none;">Projets</span>
                 </button>
-                <button class="tab-button" data-tab="certifications">
-                    <span class="lang-en">Certifications</span>
-                    <span class="lang-fr" style="display:none;">Certifications</span>
+                <button class="nav-tab" data-section="certifications">
+                    <i class="fa-solid fa-certificate"></i>
+                    <span class="lang-en">Certs</span>
+                    <span class="lang-fr" style="display:none;">Certifs</span>
                 </button>
-                <button class="tab-button" data-tab="career">
+                <button class="nav-tab" data-section="career">
+                    <i class="fa-solid fa-briefcase"></i>
                     <span class="lang-en">Career</span>
                     <span class="lang-fr" style="display:none;">Parcours</span>
                 </button>
-            </div>
+            </nav>
 
-            <!-- Projects Tab -->
-            <div class="tab-content active" id="projects">
-                <div class="content-wrapper">
-                    <h2 class="lang-en">Some works and projects</h2>
-                    <h2 class="lang-fr" style="display:none;">Quelques travaux et projets</h2>
-                    <div class="projects-list">
+            <!-- Content Sections -->
+            <div class="content-area">
 
-                    <!-- Project 1 -->
-                    <div class="project-item">
-                        <div class="project-icon"><i class="devicon-kubernetes-plain"></i></div>
-                        <div class="project-content">
+                <!-- ABOUT SECTION -->
+                <section class="section active" id="about">
+                    <div class="section-header">
+                        <h2>
+                            <span class="section-icon"><i class="fa-solid fa-terminal"></i></span>
+                            <span class="lang-en">About Me</span>
+                            <span class="lang-fr" style="display:none;">À propos</span>
+                        </h2>
+                    </div>
+
+                    <div class="about-card card">
+                        <div class="about-text">
+                            <!-- Version EN -->
+                            <div class="lang-en">
+                                <p>I'm Louis, a Cloud & DevOps engineer with 6+ years building and maintaining infrastructure for large-scale environments (60,000+ users at the University of Bordeaux).</p>
+                                <p>I build systems that work reliably, even if it takes longer to get there. My approach is straightforward: favor simple solutions over clever ones, test thoroughly before deploying, and only automate what I fully understand. In my opinion, true reliability comes from deep understanding of fundamentals.</p>
+                                <p class="text-muted">Currently based between France and Indonesia, preparing my next international move. I've simplified my life to enable full mobility: I'm ready to relocate on short notice or work fully remote.</p>
+                                <p>Now deepening my expertise through <strong>Azure AZ-104</strong> (expected Jan 2026) and <strong>Kubernetes CKA</strong> (expected Mar 2026) certifications.</p>
+                            </div>
+
+                            <!-- Version FR -->
+                            <div class="lang-fr" style="display:none;">
+                                <p>Je suis Louis, ingénieur Cloud & DevOps avec plus de 6 ans d'expérience dans la construction et la maintenance d'infrastructures à grande échelle (60 000+ utilisateurs à l'Université de Bordeaux).</p>
+                                <p>Je construis des systèmes fiables, même si cela prend plus de temps. Mon approche est simple : privilégier les solutions simples aux solutions sophistiquées, tester rigoureusement avant de déployer, et n'automatiser que ce que je comprends parfaitement. La vraie fiabilité vient d'une compréhension profonde des fondamentaux.</p>
+                                <p class="text-muted">Actuellement entre la France et l'Indonésie, je prépare mon prochain départ international. J'ai simplifié ma vie pour une mobilité totale : je suis prêt à déménager rapidement ou à travailler en full remote.</p>
+                                <p>J'approfondis actuellement mon expertise avec les certifications <strong>Azure AZ-104</strong> (prévue janv. 2026) et <strong>Kubernetes CKA</strong> (prévue mars 2026).</p>
+                                <p class="ai-take"><i class="fa-solid fa-robot"></i> <strong>Mon avis sur l'IA :</strong> Je la traite comme un assistant puissant, pas comme une baguette magique. J'ai besoin de lire, comprendre et valider les résultats avant de les implémenter. Pas de copier-coller aveugle.</p>
+                            </div>
+
+                            <!-- My take on AI - EN -->
+                            <p class="ai-take lang-en"><i class="fa-solid fa-robot"></i> <strong>My take on AI:</strong> I treat it as a powerful assistant, not a magic wand. I read, understand, and validate everything before implementation. No blind copy-paste here.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Tech Stack -->
+                    <div class="section-header">
+                        <h2>
+                            <span class="section-icon"><i class="fa-solid fa-layer-group"></i></span>
+                            <span>Tech Stack</span>
+                        </h2>
+                    </div>
+
+                    <div class="about-card card tech-stack-card">
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <span class="category-label">Cloud</span>
+                                <div class="skill-icons">
+                                    <i class="devicon-azure-plain" title="Azure"></i>
+                                    <i class="devicon-openstack-plain" title="OpenStack"></i>
+                                </div>
+                            </div>
+                            <div class="skill-category">
+                                <span class="category-label">Containers</span>
+                                <div class="skill-icons">
+                                    <i class="devicon-kubernetes-plain" title="Kubernetes"></i>
+                                    <i class="devicon-docker-plain" title="Docker"></i>
+                                    <i class="devicon-helm-original" title="Helm"></i>
+                                </div>
+                            </div>
+                            <div class="skill-category">
+                                <span class="category-label">IaC</span>
+                                <div class="skill-icons">
+                                    <i class="devicon-terraform-plain" title="Terraform"></i>
+                                    <i class="devicon-ansible-plain" title="Ansible"></i>
+                                </div>
+                            </div>
+                            <div class="skill-category">
+                                <span class="category-label">Systems</span>
+                                <div class="skill-icons">
+                                    <i class="devicon-linux-plain" title="Linux"></i>
+                                    <i class="devicon-windows11-original" title="Windows Server"></i>
+                                </div>
+                            </div>
+                            <div class="skill-category">
+                                <span class="category-label">Scripting</span>
+                                <div class="skill-icons">
+                                    <i class="devicon-bash-plain" title="Bash"></i>
+                                    <i class="devicon-powershell-plain" title="PowerShell"></i>
+                                    <i class="devicon-python-plain" title="Python"></i>
+                                </div>
+                            </div>
+                            <div class="skill-category">
+                                <span class="category-label">CI/CD</span>
+                                <div class="skill-icons">
+                                    <i class="devicon-gitlab-plain" title="GitLab CI"></i>
+                                    <img src="./images/flux-icon.png" class="custom-icon" alt="FluxCD" title="FluxCD">
+                                </div>
+                            </div>
+                            <div class="skill-category">
+                                <span class="category-label">Monitoring</span>
+                                <div class="skill-icons">
+                                    <i class="devicon-prometheus-original" title="Prometheus"></i>
+                                    <i class="devicon-grafana-plain" title="Grafana"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SERVICES SECTION -->
+                <section class="section" id="services">
+                    <div class="section-header">
+                        <h2>
+                            <span class="section-icon"><i class="fa-solid fa-handshake"></i></span>
+                            <span class="lang-en">What I can help you with</span>
+                            <span class="lang-fr" style="display:none;">Ce que je peux faire pour vous</span>
+                        </h2>
+                    </div>
+
+                    <div class="services-list">
+                        <!-- Service 1 -->
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fa-solid fa-cloud"></i>
+                            </div>
+                            <div class="service-item-content">
+                                <h3 class="lang-en">Cloud Infrastructure & Migration</h3>
+                                <h3 class="lang-fr" style="display:none;">Infrastructure Cloud & Migration</h3>
+                                <p class="lang-en">
+                                    Design and deploy scalable cloud infrastructure on Azure or OpenStack. Migrate legacy systems to modern cloud-native architectures with minimal disruption.
+                                </p>
+                                <p class="lang-fr" style="display:none;">
+                                    Conception et déploiement d'infrastructures cloud évolutives sur Azure ou OpenStack. Migration de systèmes legacy vers des architectures cloud-natives avec interruption minimale.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Service 2 -->
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="devicon-kubernetes-plain"></i>
+                            </div>
+                            <div class="service-item-content">
+                                <h3 class="lang-en">Kubernetes & Container Orchestration</h3>
+                                <h3 class="lang-fr" style="display:none;">Kubernetes & Orchestration de Conteneurs</h3>
+                                <p class="lang-en">
+                                    Containerize applications and deploy them on Kubernetes clusters. Set up CI/CD pipelines with GitLab, Helm, and FluxCD for automated, reliable deployments.
+                                </p>
+                                <p class="lang-fr" style="display:none;">
+                                    Conteneurisation d'applications et déploiement sur clusters Kubernetes. Mise en place de pipelines CI/CD avec GitLab, Helm et FluxCD pour des déploiements automatisés et fiables.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Service 3 -->
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="devicon-terraform-plain"></i>
+                            </div>
+                            <div class="service-item-content">
+                                <h3 class="lang-en">Infrastructure as Code</h3>
+                                <h3 class="lang-fr" style="display:none;">Infrastructure as Code</h3>
+                                <p class="lang-en">
+                                    Implement Infrastructure as Code with Terraform and Ansible. Create reusable modules, establish GitOps workflows, and automate infrastructure provisioning across environments.
+                                </p>
+                                <p class="lang-fr" style="display:none;">
+                                    Implémentation d'Infrastructure as Code avec Terraform et Ansible. Création de modules réutilisables, mise en place de workflows GitOps et automatisation du provisionnement d'infrastructure.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Service 4 -->
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fa-solid fa-wrench"></i>
+                            </div>
+                            <div class="service-item-content">
+                                <h3 class="lang-en">System Architecture & Troubleshooting</h3>
+                                <h3 class="lang-fr" style="display:none;">Architecture Système & Troubleshooting</h3>
+                                <p class="lang-en">
+                                    Design reliable system architectures (Linux/Windows). Set up monitoring with Prometheus/Grafana. Debug complex infrastructure issues and implement long-term solutions.
+                                </p>
+                                <p class="lang-fr" style="display:none;">
+                                    Conception d'architectures système fiables (Linux/Windows). Configuration de monitoring avec Prometheus/Grafana. Résolution de problèmes d'infrastructure complexes et implémentation de solutions durables.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PROJECTS SECTION -->
+                <section class="section" id="projects">
+                    <div class="section-header">
+                        <h2>
+                            <span class="section-icon"><i class="fa-solid fa-code-branch"></i></span>
+                            <span class="lang-en">Some works and projects</span>
+                            <span class="lang-fr" style="display:none;">Quelques travaux et projets</span>
+                        </h2>
+                    </div>
+
+                    <div class="projects-grid">
+                        <!-- Project 1 -->
+                        <article class="project-card card">
+                            <div class="project-header">
+                                <div class="project-icon kubernetes">
+                                    <i class="devicon-kubernetes-plain"></i>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/LsLct" class="project-link-icon" target="_blank" title="More details">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </div>
+                            </div>
                             <h3 class="project-title lang-en">Open Journal Systems Containerization</h3>
                             <h3 class="project-title lang-fr" style="display:none;">Plateforme de publication académique containerisée</h3>
-                            <p class="project-description lang-en">
-                                Containerized Open Journal Systems (OJS) for automated, scalable deployment on Kubernetes clusters.<br />
-                                Implemented isolated journal instances, each with a dedicated pod and MariaDB database managed via a Kubernetes operator.<br />
-                                Leveraged Helm charts and templating for consistent deployments across environments with CI/CD pipelines.<br />
+                            <p class="project-desc lang-en">
+                                Containerized Open Journal Systems (OJS) for automated, scalable deployment on Kubernetes clusters.<br>
+                                Implemented isolated journal instances, each with a dedicated pod and MariaDB database managed via a Kubernetes operator.<br>
+                                Leveraged Helm charts and templating for consistent deployments across environments with CI/CD pipelines.<br>
                                 Managed data migration from legacy VM deployments while deploying new, isolated instances.
                             </p>
-                            <p class="project-description lang-fr" style="display:none;">
-                                Containerisation d'Open Journal Systems pour un déploiement automatisé sur clusters Kubernetes.<br />
-                                Mise en place d'instances isolées par revue, chacune avec son pod dédié et sa base MariaDB gérée via opérateur Kubernetes.<br />
-                                Utilisation de chartes Helm pour des déploiements cohérents entre environnements via pipelines CI/CD.<br />
+                            <p class="project-desc lang-fr" style="display:none;">
+                                Containerisation d'Open Journal Systems pour un déploiement automatisé sur clusters Kubernetes.<br>
+                                Mise en place d'instances isolées par revue, chacune avec son pod dédié et sa base MariaDB gérée via opérateur Kubernetes.<br>
+                                Utilisation de chartes Helm pour des déploiements cohérents entre environnements via pipelines CI/CD.<br>
                                 Migration des données depuis des déploiements VM existants vers les nouvelles instances isolées.
                             </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Kubernetes</span>
-                                <span class="tech-tag">Helm</span>
-                                <span class="tech-tag">CI/CD</span>
-                                <span class="tech-tag">Flux CD</span>
+                            <div class="project-tags">
+                                <span class="tag">Kubernetes</span>
+                                <span class="tag">Helm</span>
+                                <span class="tag">CI/CD</span>
+                                <span class="tag">Flux CD</span>
                             </div>
-                            <a href="https://github.com/LsLct" class="project-link lang-en" target="_blank">
-                                <i class="fa-solid fa-link"></i> More details
-                            </a>
-                            <a href="https://github.com/LsLct" class="project-link lang-fr" target="_blank" style="display:none;">
-                                <i class="fa-solid fa-link"></i> Plus d'infos
-                            </a>
-                        </div>
-                    </div>
+                        </article>
 
-                    <!-- Project 2 -->
-                    <div class="project-item">
-                        <div class="project-icon"><i class="devicon-terraform-plain"></i></div>
-                        <div class="project-content">
+                        <!-- Project 2 -->
+                        <article class="project-card card">
+                            <div class="project-header">
+                                <div class="project-icon terraform">
+                                    <i class="devicon-terraform-plain"></i>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/LsLct" class="project-link-icon" target="_blank" title="More details">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </div>
+                            </div>
                             <h3 class="project-title lang-en">IaC with GitOps Workflow</h3>
                             <h3 class="project-title lang-fr" style="display:none;">Infrastructure as Code, façon GitOps</h3>
-                            <p class="project-description lang-en">
-                                Developed a comprehensive IaC solution for OpenStack deployments using Terraform modules.<br />
-                                Structured code into reusable modules for enhanced readability and maintainability. VMs, load balancers, virtual networks and other infrastructure services.<br />
-                                Implemented GitOps workflow with GitLab CI/CD, tf-controller, and Flux CD for automated infrastructure provisioning and drift detection. 
+                            <p class="project-desc lang-en">
+                                Developed a comprehensive IaC solution for OpenStack deployments using Terraform modules.<br>
+                                Structured code into reusable modules for enhanced readability and maintainability. VMs, load balancers, virtual networks and other infrastructure services.<br>
+                                Implemented GitOps workflow with GitLab CI/CD, tf-controller, and Flux CD for automated infrastructure provisioning and drift detection.
                             </p>
-                            <p class="project-description lang-fr" style="display:none;">
-                                Solution IaC complète pour les déploiements OpenStack via modules Terraform. Code structuré en modules réutilisables garantissant cohérence et maintenabilité. Machines virtuelles, load balancers, réseaux virtuels et autres services d'infrastructure.<br />
-                                Intégration à GitLab et utilisation de tf-controller et Flux CD pour automatiser les mises à jour d’infrastructure selon un workflow GitOps, garantissant des déploiements cohérents. 
+                            <p class="project-desc lang-fr" style="display:none;">
+                                Solution IaC complète pour les déploiements OpenStack via modules Terraform. Code structuré en modules réutilisables garantissant cohérence et maintenabilité. Machines virtuelles, load balancers, réseaux virtuels et autres services d'infrastructure.<br>
+                                Intégration à GitLab et utilisation de tf-controller et Flux CD pour automatiser les mises à jour d'infrastructure selon un workflow GitOps, garantissant des déploiements cohérents.
                             </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Terraform</span>
-                                <span class="tech-tag">OpenStack</span>
-                                <span class="tech-tag">Gitlab</span>
-                                <span class="tech-tag">Flux CD</span>
-                                <span class="tech-tag">GitOps</span>
+                            <div class="project-tags">
+                                <span class="tag">Terraform</span>
+                                <span class="tag">OpenStack</span>
+                                <span class="tag">Gitlab</span>
+                                <span class="tag">Flux CD</span>
+                                <span class="tag">GitOps</span>
                             </div>
-                            <a href="https://github.com/LsLct" class="project-link lang-en" target="_blank">
-                                <i class="fa-solid fa-link"></i> More details
-                            </a>
-                            <a href="https://github.com/LsLct" class="project-link lang-fr" target="_blank" style="display:none;">
-                                <i class="fa-solid fa-link"></i> Plus d'infos
-                            </a>
-                        </div>
-                    </div>
+                        </article>
 
-                    <!-- Project 3 -->
-                    <div class="project-item">
-                        <div class="project-icon"><i class="devicon-powershell-plain"></i></div>
-                        <div class="project-content">
+                        <!-- Project 3 -->
+                        <article class="project-card card">
+                            <div class="project-header">
+                                <div class="project-icon powershell">
+                                    <i class="devicon-powershell-plain"></i>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/LsLct" class="project-link-icon" target="_blank" title="More details">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </div>
+                            </div>
                             <h3 class="project-title lang-en">Active Directory and OpenLDAP Account Synchronization</h3>
                             <h3 class="project-title lang-fr" style="display:none;">Synchronisation d'annuaires OpenLDAP vers Active Directory</h3>
-                            <p class="project-description lang-en">
-                                Developed modular PowerShell scripts to synchronize over 60,000 user accounts from OpenLDAP to Active Directory, including account provisioning and lifecycle management with Kerberos authentication integration.<br />
+                            <p class="project-desc lang-en">
+                                Developed modular PowerShell scripts to synchronize over 60,000 user accounts from OpenLDAP to Active Directory, including account provisioning and lifecycle management with Kerberos authentication integration.<br>
                                 Implemented LDAP attribute-based group membership assignment and secure random password generation, ensuring seamless identity management across systems.
                             </p>
-                            <p class="project-description lang-fr" style="display:none;">
-                                Scripts et modules PowerShell pour synchroniser plus de 60 000 comptes d'utilisateurs d’OpenLDAP vers Active Directory, avec création et gestion du cycle de vie des comptes, en prenant en charge l'authentification Kerberos externe, l'appartenance aux groupes selon des attributs LDAP, et la génération de mots de passe aléatoires.<br /> 
+                            <p class="project-desc lang-fr" style="display:none;">
+                                Scripts et modules PowerShell pour synchroniser plus de 60 000 comptes d'utilisateurs d'OpenLDAP vers Active Directory, avec création et gestion du cycle de vie des comptes, en prenant en charge l'authentification Kerberos externe, l'appartenance aux groupes selon des attributs LDAP, et la génération de mots de passe aléatoires.<br>
                                 Tout cela assurant une gestion des identité transparente entre les systèmes.
                             </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Powershell</span>
-                                <span class="tech-tag">Active Directory</span>
-                                <span class="tech-tag">OpenLDAP</span>
-                                <span class="tech-tag lang-en">Identity Management</span>
-                                <span class="tech-tag lang-fr" style="display:none;">Gestion d'identité</span>
-                                <span class="tech-tag">Kerberos</span>
+                            <div class="project-tags">
+                                <span class="tag">Powershell</span>
+                                <span class="tag">Active Directory</span>
+                                <span class="tag">OpenLDAP</span>
+                                <span class="tag lang-en">Identity Management</span>
+                                <span class="tag lang-fr" style="display:none;">Gestion d'identité</span>
+                                <span class="tag">Kerberos</span>
                             </div>
-                            <a href="https://github.com/LsLct" class="project-link lang-en" target="_blank">
-                                <i class="fa-solid fa-link"></i> More details
-                            </a>
-                            <a href="https://github.com/LsLct" class="project-link lang-fr" target="_blank" style="display:none;">
-                                <i class="fa-solid fa-link"></i> Plus d'infos
-                            </a>
-                        </div>
-                    </div>
+                        </article>
 
-                    <!-- Project 4 -->
-                    <div class="project-item">
-                        <div class="project-icon"><i class="devicon-ansible-plain"></i></div>
-                        <div class="project-content">
+                        <!-- Project 4 -->
+                        <article class="project-card card">
+                            <div class="project-header">
+                                <div class="project-icon ansible">
+                                    <i class="devicon-ansible-plain"></i>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/LsLct" class="project-link-icon" target="_blank" title="More details">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </div>
+                            </div>
                             <h3 class="project-title lang-en">Automated Application Deployment with Ansible</h3>
                             <h3 class="project-title lang-fr" style="display:none;">Déploiement d'applications avec Ansible</h3>
-                            <p class="project-description lang-en">
-                                Some Ansible playbooks examples for automated deployment of web applications (iTop, GLPI) with complete infrastructure provisioning.<br/> 
+                            <p class="project-desc lang-en">
+                                Some Ansible playbooks examples for automated deployment of web applications (iTop, GLPI) with complete infrastructure provisioning.<br>
                                 Handling base system configuration, dependency management, SSL certificate provisioning, and application customization.
                             </p>
-                            <p class="project-description lang-fr" style="display:none;">
+                            <p class="project-desc lang-fr" style="display:none;">
                                 Quelques exemples de recettes Ansible pour le déploiement automatisé d'applications web (iTop, GLPI) avec provisioning complet d'infrastructure. Gestion de la configuration système, des dépendances, des certificats SSL et de la personnalisation applicative.
                             </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Ansible</span>
-                                <span class="tech-tag lang-en">Configuration Management</span>
-                                <span class="tech-tag lang-fr" style="display:none;">Gestion de configuration</span>
-                                <span class="tech-tag lang-en">Web Applications</span>
-                                <span class="tech-tag lang-fr" style="display:none;">Applications Web</span>
-                                <span class="tech-tag">Apache</span>
-                                <span class="tech-tag">PHP</span>
-                                <span class="tech-tag">MariaDB</span>
+                            <div class="project-tags">
+                                <span class="tag">Ansible</span>
+                                <span class="tag lang-en">Configuration Management</span>
+                                <span class="tag lang-fr" style="display:none;">Gestion de configuration</span>
+                                <span class="tag lang-en">Web Applications</span>
+                                <span class="tag lang-fr" style="display:none;">Applications Web</span>
+                                <span class="tag">Apache</span>
+                                <span class="tag">PHP</span>
+                                <span class="tag">MariaDB</span>
                             </div>
-                            <a href="https://github.com/LsLct" class="project-link lang-en" target="_blank">
-                                <i class="fa-solid fa-link"></i> More details
-                            </a>
-                            <a href="https://github.com/LsLct" class="project-link lang-fr" target="_blank" style="display:none;">
-                                <i class="fa-solid fa-link"></i> Plus d'infos
-                            </a>
-                        </div>
-                    </div>
+                        </article>
 
-                    <!-- Project 5 -->
-                    <div class="project-item">
-                        <div class="project-icon"><i class="fa-solid fa-wrench"></i></div>
-                        <div class="project-content">
+                        <!-- Project 5 -->
+                        <article class="project-card card">
+                            <div class="project-header">
+                                <div class="project-icon troubleshoot">
+                                    <i class="fa-solid fa-wrench"></i>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/LsLct" class="project-link-icon" target="_blank" title="More details">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </div>
+                            </div>
                             <h3 class="project-title lang-en">Troubleshooting example: RocketChat Data Recovery on Kubernetes</h3>
                             <h3 class="project-title lang-fr" style="display:none;">Troubleshooting, exemple: Restauration de données perdues RocketChat sous K8s</h3>
-                            <p class="project-description lang-en">
-                                Executed critical data recovery operation following a production incident where RocketChat message retention was accidentally reduced from 6 to 1 month, resulting in 5 months of data loss.<br/> 
+                            <p class="project-desc lang-en">
+                                Executed critical data recovery operation following a production incident where RocketChat message retention was accidentally reduced from 6 to 1 month, resulting in 5 months of data loss.<br>
                                 Performed forensic analysis of MongoDB and Kubernetes persistent volume backups to recover lost messages and attachments, implementing seamless production restoration with zero downtime.
                             </p>
-                            <p class="project-description lang-fr" style="display:none;">
-                                Récupération de données suite à un incident de production où la rétention des messages RocketChat est passée accidentellement de 6 à 1 mois, entraînant 5 mois de perte.<br/>  
-                                Analyse des sauvegardes MongoDB et des PV Kubernetes pour récupérer messages et pièces jointes perdus, avec restauration transparente en production sans interruption de service. 
+                            <p class="project-desc lang-fr" style="display:none;">
+                                Récupération de données suite à un incident de production où la rétention des messages RocketChat est passée accidentellement de 6 à 1 mois, entraînant 5 mois de perte.<br>
+                                Analyse des sauvegardes MongoDB et des PV Kubernetes pour récupérer messages et pièces jointes perdus, avec restauration transparente en production sans interruption de service.
                             </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">MongoDB</span>
-                                <span class="tech-tag">Data Recovery</span>
-                                <span class="tech-tag">Bash</span>
-                                <span class="tech-tag">Kubernetes</span>
-                                <span class="tech-tag">RocketChat</span>
+                            <div class="project-tags">
+                                <span class="tag">MongoDB</span>
+                                <span class="tag">Data Recovery</span>
+                                <span class="tag">Bash</span>
+                                <span class="tag">Kubernetes</span>
+                                <span class="tag">RocketChat</span>
                             </div>
-                            <a href="https://github.com/LsLct" class="project-link lang-en" target="_blank">
-                                <i class="fa-solid fa-link"></i> More details
-                            </a>
-                            <a href="https://github.com/LsLct" class="project-link lang-fr" target="_blank" style="display:none;">
-                                <i class="fa-solid fa-link"></i> Plus d'infos
-                            </a>
-                        </div>
-                        </div>
+                        </article>
                     </div>
-                </div>
-            </section>
-            </div>
+                </section>
 
-            <!-- Certifications Tab -->
-            <div class="tab-content" id="certifications">
-                <div class="content-wrapper">
-                    <h2 class="lang-en">Certifications</h2>
-                    <h2 class="lang-fr" style="display:none;">Certifications</h2>
+                <!-- CERTIFICATIONS SECTION -->
+                <section class="section" id="certifications">
+                    <div class="section-header">
+                        <h2>
+                            <span class="section-icon"><i class="fa-solid fa-award"></i></span>
+                            <span class="lang-en">Certifications</span>
+                            <span class="lang-fr" style="display:none;">Certifications</span>
+                        </h2>
+                    </div>
 
                     <!-- Current & In Progress -->
-                    <div class="cert-category">
-                        <h3 class="cert-category-title lang-en">Current & in progress</h3>
-                        <h3 class="cert-category-title lang-fr" style="display:none;">Actuelles et en cours</h3>
+                    <div class="cert-group">
+                        <h3 class="cert-group-title">
+                            <span class="lang-en">Current & in progress</span>
+                            <span class="lang-fr" style="display:none;">Actuelles et en cours</span>
+                        </h3>
 
-                        <div class="projects-list">
+                        <div class="certs-list">
                             <!-- AZ-900 -->
-                            <div class="project-item cert-item">
-                                <div class="project-icon cert-icon">
+                            <div class="cert-card card">
+                                <div class="cert-icon azure">
                                     <i class="devicon-azure-plain"></i>
                                 </div>
-                                <div class="project-content">
+                                <div class="cert-content">
                                     <div class="cert-header">
-                                        <div>
-                                            <h3 class="project-title">Microsoft Azure Fundamentals (AZ-900)</h3>
-                                            <p class="cert-issuer">Microsoft</p>
-                                        </div>
-                                        <span class="cert-badge cert-obtained">
-                                            <i class="fa-solid fa-check-circle"></i>
+                                        <h4>Microsoft Azure Fundamentals (AZ-900)</h4>
+                                        <span class="cert-status obtained">
+                                            <i class="fa-solid fa-circle-check"></i>
                                             <span class="lang-en">Obtained</span>
                                             <span class="lang-fr" style="display:none;">Obtenue</span>
                                         </span>
                                     </div>
-                                    <p class="cert-date lang-en">
-                                        <i class="fa-regular fa-calendar"></i> Obtained: July 2025
-                                    </p>
-                                    <p class="cert-date lang-fr" style="display:none;">
-                                        <i class="fa-regular fa-calendar"></i> Obtenue : Juillet 2025
-                                    </p>
-                                    <p class="project-description lang-en">
-                                        Entry-level certification validating foundational knowledge of cloud concepts and core Azure services. 
+                                    <span class="cert-issuer">Microsoft</span>
+                                    <p class="cert-date lang-en"><i class="fa-regular fa-calendar"></i> Obtained: July 2025</p>
+                                    <p class="cert-date lang-fr" style="display:none;"><i class="fa-regular fa-calendar"></i> Obtenue : Juillet 2025</p>
+                                    <p class="cert-description lang-en">
+                                        Entry-level certification validating foundational knowledge of cloud concepts and core Azure services.
                                         Covers cloud architecture, Azure core services (compute, networking, storage), governance, security, compliance, privacy, and Azure pricing and support models.
                                     </p>
-                                    <p class="project-description lang-fr" style="display:none;">
-                                        Certification d’introduction validant les connaissances fondamentales des concepts cloud et des services Azure principaux. 
-                                        Couvre l’architecture cloud, les services Azure de base (calcul, réseau, stockage), la gouvernance, la sécurité, la conformité, la confidentialité ainsi que les modèles de tarification et de support Azure.
+                                    <p class="cert-description lang-fr" style="display:none;">
+                                        Certification d'introduction validant les connaissances fondamentales des concepts cloud et des services Azure principaux.
+                                        Couvre l'architecture cloud, les services Azure de base (calcul, réseau, stockage), la gouvernance, la sécurité, la conformité, la confidentialité ainsi que les modèles de tarification et de support Azure.
                                     </p>
-                                    <div class="project-tech">
-                                        <span class="tech-tag">Azure</span>
-                                        <span class="tech-tag">Cloud Concepts</span>
+                                    <div class="project-tags">
+                                        <span class="tag">Azure</span>
+                                        <span class="tag">Cloud Concepts</span>
                                     </div>
                                 </div>
                             </div>
-                        
+
                             <!-- AZ-104 -->
-                            <div class="project-item cert-item">
-                                <div class="project-icon cert-icon">
+                            <div class="cert-card card">
+                                <div class="cert-icon azure">
                                     <i class="devicon-azure-plain"></i>
                                 </div>
-                                <div class="project-content">
+                                <div class="cert-content">
                                     <div class="cert-header">
-                                        <div>
-                                            <h3 class="project-title">Microsoft Azure Administrator Associate (AZ-104)</h3>
-                                            <p class="cert-issuer">Microsoft</p>
-                                        </div>
-                                        <span class="cert-badge cert-in-progress">
-                                            <i class="fa-solid fa-spinner"></i>
+                                        <h4>Microsoft Azure Administrator Associate (AZ-104)</h4>
+                                        <span class="cert-status progress">
+                                            <i class="fa-solid fa-spinner fa-spin"></i>
                                             <span class="lang-en">In Progress</span>
                                             <span class="lang-fr" style="display:none;">En Cours</span>
                                         </span>
                                     </div>
-                                    <p class="cert-date lang-en">
-                                        <i class="fa-regular fa-calendar"></i> Expected: January 2026
+                                    <span class="cert-issuer">Microsoft</span>
+                                    <p class="cert-date lang-en"><i class="fa-regular fa-calendar"></i> Expected: January 2026</p>
+                                    <p class="cert-date lang-fr" style="display:none;"><i class="fa-regular fa-calendar"></i> Prévue : Janvier 2026</p>
+                                    <p class="cert-description lang-en">
+                                        Certification for Azure administrators.
+                                        Validates the ability to implement, manage, and monitor an organization's Azure environment, including virtual networks and compute, storage, identity (Microsoft Entra ID), security, governance, and disaster recovery solutions.
                                     </p>
-                                    <p class="cert-date lang-fr" style="display:none;">
-                                        <i class="fa-regular fa-calendar"></i> Prévue : Janvier 2026
+                                    <p class="cert-description lang-fr" style="display:none;">
+                                        Certification destinée aux administrateurs Azure.
+                                        Valide la capacité à implémenter, gérer et superviser l'environnement Azure d'une organisation : réseaux virtuels, compute, stockage, identité (Microsoft Entra ID), sécurité, gouvernance et solutions de reprise / continuité d'activité.
                                     </p>
-                                    <p class="project-description lang-en">
-                                        Certification for Azure administrators. 
-                                        Validates the ability to implement, manage, and monitor an organization’s Azure environment, including virtual networks and compute, storage, identity (Microsoft Entra ID), security, governance, and disaster recovery solutions.
-                                    </p>
-                                    <p class="project-description lang-fr" style="display:none;">
-                                        Certification destinée aux administrateurs Azure. 
-                                        Valide la capacité à implémenter, gérer et superviser l’environnement Azure d’une organisation : réseaux virtuels, compute, stockage, identité (Microsoft Entra ID), sécurité, gouvernance et solutions de reprise / continuité d’activité.
-                                    </p>
-                                    <div class="project-tech">
-                                        <span class="tech-tag">Azure</span>
-                                        <span class="tech-tag">Cloud Administration</span>
+                                    <div class="project-tags">
+                                        <span class="tag">Azure</span>
+                                        <span class="tag">Cloud Administration</span>
                                     </div>
                                 </div>
                             </div>
-                        
+
                             <!-- CKA -->
-                            <div class="project-item cert-item">
-                                <div class="project-icon cert-icon">
+                            <div class="cert-card card">
+                                <div class="cert-icon kubernetes">
                                     <i class="devicon-kubernetes-plain"></i>
                                 </div>
-                                <div class="project-content">
+                                <div class="cert-content">
                                     <div class="cert-header">
-                                        <div>
-                                            <h3 class="project-title">Certified Kubernetes Administrator (CKA)</h3>
-                                            <p class="cert-issuer">Cloud Native Computing Foundation (CNCF)</p>
-                                        </div>
-                                        <span class="cert-badge cert-in-progress">
-                                            <i class="fa-solid fa-spinner"></i>
+                                        <h4>Certified Kubernetes Administrator (CKA)</h4>
+                                        <span class="cert-status progress">
+                                            <i class="fa-solid fa-spinner fa-spin"></i>
                                             <span class="lang-en">In Progress</span>
                                             <span class="lang-fr" style="display:none;">En Cours</span>
                                         </span>
                                     </div>
-                                    <p class="cert-date lang-en">
-                                        <i class="fa-regular fa-calendar"></i> Expected: March 2026
-                                    </p>
-                                    <p class="cert-date lang-fr" style="display:none;">
-                                        <i class="fa-regular fa-calendar"></i> Prévue : Mars 2026
-                                    </p>
-                                    <p class="project-description lang-en">
-                                        Performance-based certification from the Cloud Native Computing Foundation (CNCF). 
+                                    <span class="cert-issuer">Cloud Native Computing Foundation (CNCF)</span>
+                                    <p class="cert-date lang-en"><i class="fa-regular fa-calendar"></i> Expected: March 2026</p>
+                                    <p class="cert-date lang-fr" style="display:none;"><i class="fa-regular fa-calendar"></i> Prévue : Mars 2026</p>
+                                    <p class="cert-description lang-en">
+                                        Performance-based certification from the Cloud Native Computing Foundation (CNCF).
                                         Demonstrates advanced skills in Kubernetes cluster administration: installation and configuration, networking, storage, security, troubleshooting, workload management, and cluster maintenance in production environments.
                                     </p>
-                                    <p class="project-description lang-fr" style="display:none;">
-                                        Certification pratique délivrée par la Cloud Native Computing Foundation (CNCF). 
+                                    <p class="cert-description lang-fr" style="display:none;">
+                                        Certification pratique délivrée par la Cloud Native Computing Foundation (CNCF).
                                         Atteste des compétences avancées en administration de clusters Kubernetes : installation, configuration, réseau, stockage, sécurité, troubleshooting, gestion des workloads et maintenance de clusters en production.
                                     </p>
-                                    <div class="project-tech">
-                                        <span class="tech-tag">Kubernetes</span>
-                                        <span class="tech-tag">Container Orchestration</span>
+                                    <div class="project-tags">
+                                        <span class="tag">Kubernetes</span>
+                                        <span class="tag">Container Orchestration</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                
-                    <!-- Legacy Certifications -->
-                    <div class="cert-category cert-legacy">
-                        <h3 class="cert-category-title lang-en">Legacy certifications</h3>
-                        <h3 class="cert-category-title lang-fr" style="display:none;">Certifications historiques</h3>
 
-                        <div class="projects-list">
+                    <!-- Legacy -->
+                    <div class="cert-group legacy">
+                        <h3 class="cert-group-title">
+                            <span class="lang-en">Legacy certifications</span>
+                            <span class="lang-fr" style="display:none;">Certifications historiques</span>
+                        </h3>
+
+                        <div class="certs-list">
                             <!-- MCSA -->
-                            <div class="project-item cert-item">
-                                <div class="project-icon cert-icon cert-icon-legacy">
+                            <div class="cert-card card legacy-card">
+                                <div class="cert-icon legacy">
                                     <i class="fa-brands fa-microsoft"></i>
                                 </div>
-                                <div class="project-content">
+                                <div class="cert-content">
                                     <div class="cert-header">
-                                        <div>
-                                            <h3 class="project-title">MCSA: Windows Server 2012 R2</h3>
-                                            <p class="cert-issuer">Microsoft</p>
-                                        </div>
-                                        <span class="cert-badge cert-legacy-badge">
+                                        <h4>MCSA: Windows Server 2012 R2</h4>
+                                        <span class="cert-status legacy">
                                             <i class="fa-solid fa-archive"></i>
                                             <span class="lang-en">Legacy</span>
                                             <span class="lang-fr" style="display:none;">Historique</span>
                                         </span>
                                     </div>
-                                    <p class="cert-date lang-en">
-                                        <i class="fa-regular fa-calendar"></i> Obtained: July 2017
-                                    </p>
-                                    <p class="cert-date lang-fr" style="display:none;">
-                                        <i class="fa-regular fa-calendar"></i> Obtenue : Juillet 2017
-                                    <p class="project-description lang-en">
+                                    <span class="cert-issuer">Microsoft</span>
+                                    <p class="cert-date lang-en"><i class="fa-regular fa-calendar"></i> Obtained: July 2017</p>
+                                    <p class="cert-date lang-fr" style="display:none;"><i class="fa-regular fa-calendar"></i> Obtenue : Juillet 2017</p>
+                                    <p class="cert-description lang-en">
                                         Certification demonstrating expertise in Windows Server 2012 R2 administration through three comprehensive exams: 70-410 (Installing and Configuring), 70-411 (Administering), and 70-412 (Configuring Advanced Services). Covered enterprise-grade Active Directory, advanced networking, Hyper-V, and complex infrastructure scenarios. This certification provided the foundation for my Windows Systems Engineer role (2018-2022).
                                     </p>
-                                    <p class="project-description lang-fr" style="display:none;">
+                                    <p class="cert-description lang-fr" style="display:none;">
                                         Certification démontrant l'expertise en administration Windows Server 2012 R2 via le passage de trois examens : 70-410 (Installation et Configuration), 70-411 (Administration) et 70-412 (Configuration des Services Avancés). Elle couvrait des sujets tels que l'Active Directory, les services réseaux, Hyper-V, et les scénarios d'infrastructure complexes. Cette certification a constitué le socle de mon rôle d'ingénieur systèmes Windows (2018-2022).
                                     </p>
-                                    <div class="cert-note lang-en">
-                                        <i class="fa-solid fa-info-circle"></i> Note: Microsoft retired MCSA certifications in January 2021.
-                                    </div>
-                                    <div class="cert-note lang-fr" style="display:none;">
-                                        <i class="fa-solid fa-info-circle"></i> Note : Microsoft a retiré les certifications MCSA en janvier 2021.
-                                    </div>
-                                    <div class="project-tech">
-                                        <span class="tech-tag">Active Directory</span>
-                                        <span class="tech-tag">System Administration</span>
-                                        <span class="tech-tag">Windows Server</span>
+                                    <p class="cert-note lang-en"><i class="fa-solid fa-info-circle"></i> Note: Microsoft retired MCSA certifications in January 2021.</p>
+                                    <p class="cert-note lang-fr" style="display:none;"><i class="fa-solid fa-info-circle"></i> Note : Microsoft a retiré les certifications MCSA en janvier 2021.</p>
+                                    <div class="project-tags">
+                                        <span class="tag">Active Directory</span>
+                                        <span class="tag">System Administration</span>
+                                        <span class="tag">Windows Server</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
+
+                <!-- CAREER SECTION -->
+                <section class="section" id="career">
+                    <div class="section-header">
+                        <h2>
+                            <span class="section-icon"><i class="fa-solid fa-route"></i></span>
+                            <span class="lang-en">Career Path</span>
+                            <span class="lang-fr" style="display:none;">Parcours</span>
+                        </h2>
+                    </div>
+
+                    <div class="timeline-alt">
+                        <!-- Timeline Item 1 - Right -->
+                        <div class="timeline-item-alt right">
+                            <div class="timeline-content">
+                                <div class="timeline-card card">
+                                    <div class="timeline-date">
+                                        <span class="lang-en">Dec 2024 - Dec 2025</span>
+                                        <span class="lang-fr" style="display:none;">Déc 2024 - Déc 2025</span>
+                                    </div>
+                                    <h4 class="timeline-title lang-en">Professional Break</h4>
+                                    <h4 class="timeline-title lang-fr" style="display:none;">Pause professionnelle</h4>
+                                    <p class="timeline-location">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <span class="lang-en">France | Indonesia</span>
+                                        <span class="lang-fr" style="display:none;">France | Indonésie</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="timeline-marker-alt">
+                                <div class="marker-dot current"></div>
+                            </div>
+                            <div class="timeline-spacer"></div>
+                        </div>
+
+                        <!-- Timeline Item 2 - Left -->
+                        <div class="timeline-item-alt left">
+                            <div class="timeline-spacer"></div>
+                            <div class="timeline-marker-alt">
+                                <div class="marker-dot"></div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-card card">
+                                    <div class="timeline-date">
+                                        <span class="lang-en">Apr 2022 - Dec 2024</span>
+                                        <span class="lang-fr" style="display:none;">Avr 2022 - Déc 2024</span>
+                                    </div>
+                                    <h4 class="timeline-title lang-en">Cloud & DevOps Engineer</h4>
+                                    <h4 class="timeline-title lang-fr" style="display:none;">Ingénieur Cloud & DevOps</h4>
+                                    <p class="timeline-location">
+                                        <i class="fa-solid fa-building"></i>
+                                        <span class="lang-en">University of Bordeaux</span>
+                                        <span class="lang-fr" style="display:none;">Université de Bordeaux</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 3 - Right -->
+                        <div class="timeline-item-alt right">
+                            <div class="timeline-content">
+                                <div class="timeline-card card">
+                                    <div class="timeline-date">
+                                        <span class="lang-en">Apr 2018 - Apr 2022</span>
+                                        <span class="lang-fr" style="display:none;">Avr 2018 - Avr 2022</span>
+                                    </div>
+                                    <h4 class="timeline-title lang-en">Windows Systems Engineer</h4>
+                                    <h4 class="timeline-title lang-fr" style="display:none;">Ingénieur Systèmes Windows</h4>
+                                    <p class="timeline-location">
+                                        <i class="fa-solid fa-building"></i>
+                                        <span class="lang-en">University of Bordeaux</span>
+                                        <span class="lang-fr" style="display:none;">Université de Bordeaux</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="timeline-marker-alt">
+                                <div class="marker-dot"></div>
+                            </div>
+                            <div class="timeline-spacer"></div>
+                        </div>
+
+                        <!-- Timeline Item 4 - Left -->
+                        <div class="timeline-item-alt left">
+                            <div class="timeline-spacer"></div>
+                            <div class="timeline-marker-alt">
+                                <div class="marker-dot"></div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-card card">
+                                    <div class="timeline-date">
+                                        <span class="lang-en">Mar 2018 - Apr 2018</span>
+                                        <span class="lang-fr" style="display:none;">Mars 2018 - Avr 2018</span>
+                                    </div>
+                                    <h4 class="timeline-title lang-en">IT Administrator</h4>
+                                    <h4 class="timeline-title lang-fr" style="display:none;">Administrateur Systèmes</h4>
+                                    <p class="timeline-location">
+                                        <i class="fa-solid fa-building"></i>
+                                        Capgemini, Bordeaux
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 5 - Right -->
+                        <div class="timeline-item-alt right">
+                            <div class="timeline-content">
+                                <div class="timeline-card card">
+                                    <div class="timeline-date">
+                                        <span class="lang-en">Sep 2016 - Sep 2017</span>
+                                        <span class="lang-fr" style="display:none;">Sep 2016 - Sep 2017</span>
+                                    </div>
+                                    <h4 class="timeline-title lang-en">IT Administrator</h4>
+                                    <h4 class="timeline-title lang-fr" style="display:none;">Administrateur Systèmes</h4>
+                                    <p class="timeline-location">
+                                        <i class="fa-solid fa-building"></i>
+                                        SB2P / IDCSOFT, Bordeaux
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="timeline-marker-alt">
+                                <div class="marker-dot"></div>
+                            </div>
+                            <div class="timeline-spacer"></div>
+                        </div>
+                    </div>
+                </section>
             </div>
 
-            <!-- Career Tab -->
-            <div class="tab-content" id="career">
-                <div class="content-wrapper">
-                    <h2 class="lang-en">Career Path</h2>
-                    <h2 class="lang-fr" style="display:none;">Parcours Professionnel</h2>
-                    <div class="timeline">
+            <!-- Footer -->
+            <footer class="footer">
+                <p>&copy; 2026 Louis Lecat | Made with some help from Claude: honest guy here 😉 | No rights reserved.</p>
+            </footer>
+        </main>
+    </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date lang-en">December 2024 - December 2025</div>
-                        <div class="timeline-date lang-fr" style="display:none;">Décembre 2024 - Décembre 2025</div>
-                        <h3 class="timeline-title lang-en">Professionnal pause</h3>
-                        <h3 class="timeline-title lang-fr" style="display:none;">Pause professionnelle</h3>
-                        <div class="timeline-company lang-en">France | Indonesia</div>
-                        <div class="timeline-company lang-fr" style="display:none;">France | Indonesie</div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date lang-en">April 2022 - December 2024</div>
-                        <div class="timeline-date lang-fr" style="display:none;">Avril 2024 - Décembre 2024</div>
-                        <h3 class="timeline-title lang-en">Cloud & DevOps Engineer</h3>
-                        <h3 class="timeline-title lang-fr" style="display:none;">Ingénieur Cloud & DevOps</h3>
-                        <div class="timeline-company lang-en">University of Bordeaux, Bordeaux, France</div>
-                        <div class="timeline-company lang-fr" style="display:none;">Université de Bordeaux, Bordeaux, France</div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date lang-en">April 2018 - April 2022</div>
-                        <div class="timeline-date lang-fr" style="display:none;">Avril 2018 - Avril 2022</div>
-                        <h3 class="timeline-title lang-en">Windows Systems Engineer</h3>
-                        <h3 class="timeline-title lang-fr" style="display:none;">Ingénieur Systèmes Windows</h3>
-                        <div class="timeline-company lang-en">University of Bordeaux, Bordeaux, France</div>
-                        <div class="timeline-company lang-fr" style="display:none;">Université de Bordeaux, Bordeaux, France</div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date lang-en">March 2018 - April 2018</div>
-                        <div class="timeline-date lang-fr" style="display:none;">Mars 2018 - Avril 2018</div>
-                        <h3 class="timeline-title lang-en">IT Administrator</h3>
-                        <h3 class="timeline-title lang-fr" style="display:none;">Administrateur systèmes</h3>
-                        <div class="timeline-company">Capgemini, Bordeaux, France</div>
-                    </div>                    
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date lang-en">September 2016 - September 2017</div>
-                        <div class="timeline-date lang-fr" style="display:none;">Septembre 2016 - Septembre 2017</div>
-                        <h3 class="timeline-title lang-en">IT Administrator</h3>
-                        <h3 class="timeline-title lang-fr" style="display:none;">Administrateur systèmes</h3>
-                        <div class="timeline-company">SB2P / IDCSOFT, Bordeaux, France</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>
-                &copy; 2025 Louis Lecat | Made with some help from Claude: honest guy here 😉 | No rights reserved.
-            </p>
-        </div>
-    </footer>
-    
     <!-- Scripts -->
     <script src="./js/main.js"></script>
 </body>
