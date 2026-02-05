@@ -454,7 +454,7 @@ body {
     box-shadow: var(--shadow-card);
 }
 
-/* Top Controls (Language Switcher - Fixed top right) */
+/* Language Switcher */
 .top-controls {
     position: fixed;
     top: 20px;
@@ -500,24 +500,24 @@ body {
 .theme-switcher {
     display: flex;
     justify-content: center;
-    gap: 8px;
-    padding: 10px;
+    gap: 6px;
+    padding: 6px;
     background: var(--bg-muted);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-sm);
     margin-top: auto;
     border: 1px solid var(--border-light);
 }
 
 .theme-btn {
-    width: 42px;
-    height: 42px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--bg-card);
     border: 1px solid var(--border-light);
     border-radius: var(--radius-sm);
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--text-muted);
     cursor: pointer;
     transition: var(--transition-fast);
@@ -750,55 +750,6 @@ body {
 @keyframes pulse-dot {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.5; transform: scale(1.2); }
-}
-
-/* === SERVICES SECTION === */
-.services-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.service-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 20px;
-    background: var(--bg-card);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border-light);
-    transition: var(--transition-normal);
-}
-
-.service-item:hover {
-    border-color: var(--border-accent);
-}
-
-.service-item .service-icon {
-    width: 48px;
-    height: 48px;
-    min-width: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--accent-orange) 20%, var(--accent-cream) 80%);
-    border-radius: var(--radius-md);
-    color: white;
-    font-size: 1.4rem;
-}
-
-.service-item-content h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 8px;
-}
-
-.service-item-content p {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    line-height: 1.6;
-    margin: 0;
 }
 
 /* === PROJECTS SECTION === */
@@ -1085,6 +1036,24 @@ body {
     font-style: italic;
 }
 
+.cert-score {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: rgba(90, 122, 82, 0.1);
+    border: 1px solid rgba(90, 122, 82, 0.25);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent-green);
+    margin-top: 8px;
+}
+
+.cert-score i {
+    font-size: 0.75rem;
+}
+
 .legacy-card {
     opacity: 0.7;
 }
@@ -1322,6 +1291,11 @@ body {
     .services-grid {
         grid-template-columns: 1fr;
     }
+
+    /* Fix language switcher overlap on iPad portrait */
+    .nav-tabs {
+        padding-right: 100px;
+    }
 }
 
 /* Mobile */
@@ -1345,14 +1319,14 @@ body {
     }
 
     .theme-switcher {
-        gap: 6px;
-        padding: 8px;
+        gap: 4px;
+        padding: 4px;
     }
 
     .theme-btn {
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
+        width: 30px;
+        height: 30px;
+        font-size: 0.85rem;
     }
 
     .app-layout {
