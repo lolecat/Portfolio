@@ -95,7 +95,7 @@ document.addEventListener('keydown', (e) => {
     // Only handle if not in an input field
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
-    const sections = ['about', 'services', 'projects', 'certifications', 'career'];
+    const sections = ['about', 'projects', 'certifications', 'career'];
     const currentIndex = sections.findIndex(s =>
         document.getElementById(s)?.classList.contains('active')
     );
@@ -110,47 +110,11 @@ document.addEventListener('keydown', (e) => {
         showSection(sections[prevIndex]);
     }
 
-    // Number keys 1-5 for quick section access
+    // Number keys 1-4 for quick section access
     const numKey = parseInt(e.key);
-    if (numKey >= 1 && numKey <= 5) {
+    if (numKey >= 1 && numKey <= sections.length) {
         showSection(sections[numKey - 1]);
     }
-});
-
-
-// === Intersection Observer for animations ===
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-};
-
-const animateOnScroll = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe cards for scroll animation
-document.querySelectorAll('.glass-card, .timeline-item').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    animateOnScroll.observe(el);
-});
-
-
-// === Smooth hover effects for skill icons ===
-document.querySelectorAll('.skill-icon').forEach(icon => {
-    icon.addEventListener('mouseenter', function() {
-        const title = this.getAttribute('title');
-        if (title) {
-            this.setAttribute('data-tooltip', title);
-        }
-    });
 });
 
 
