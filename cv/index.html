@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -254,6 +255,7 @@
 
         /* Print Styles */
         @media print {
+
             /* Hide everything except the CV container */
             body {
                 background: white !important;
@@ -302,7 +304,7 @@
             }
 
             /* Keep periods and locations on one line */
-            .cv-job-location, 
+            .cv-job-location,
             .cv-job-period {
                 white-space: nowrap !important;
             }
@@ -322,20 +324,20 @@
             }
 
             .cv-header {
-                margin-bottom: 12px !important;
-                padding-bottom: 12px !important;
+                margin-bottom: 11px !important;
+                padding-bottom: 11px !important;
             }
 
             .cv-contact {
-                margin-bottom: 12px !important;
+                margin-bottom: 11px !important;
             }
 
             .cv-summary {
-                margin-bottom: 12px !important;
+                margin-bottom: 11px !important;
             }
 
             .cv-skills {
-                margin-bottom: 12px !important;
+                margin-bottom: 10px !important;
             }
 
             .cv-certifications {
@@ -367,19 +369,23 @@
         }
 
         /* Language Toggle */
-        .lang-en, .lang-fr {
+        .lang-en,
+        .lang-fr {
             display: none;
         }
 
-        .lang-en.active, .lang-fr.active {
+        .lang-en.active,
+        .lang-fr.active {
             display: block;
         }
 
-        .lang-en.active.inline, .lang-fr.active.inline {
+        .lang-en.active.inline,
+        .lang-fr.active.inline {
             display: inline;
         }
     </style>
 </head>
+
 <body>
     <!-- Controls -->
     <div class="controls">
@@ -399,8 +405,8 @@
         <!-- Header -->
         <div class="cv-header">
             <h1 class="cv-name">LOUIS LECAT</h1>
-            <h2 class="cv-title lang-en active">Cloud & DevOps Engineer</h2>
-            <h2 class="cv-title lang-fr">Ingénieur Cloud & DevOps</h2>
+            <h2 class="cv-title lang-en active">Platform Engineer</h2>
+            <h2 class="cv-title lang-fr">Platform Engineer</h2>
         </div>
 
         <!-- Contact -->
@@ -415,14 +421,14 @@
             <h3 class="cv-section-title lang-en active">SUMMARY</h3>
             <h3 class="cv-section-title lang-fr">À PROPOS</h3>
             <p class="cv-summary lang-en active">
-                French Cloud and DevOps Engineer with 6+ years of experience managing large-scale infrastructure for 60,000+ users at the University of Bordeaux.<br>
+                French Platform Engineer with 6+ years of experience managing large-scale infrastructure for 60,000+ users at the University of Bordeaux.<br>
                 Specialized in Kubernetes orchestration, Infrastructure as Code (Terraform), Powershell scripting, CI/CD automation, and Azure cloud services, with a proven track record deploying containerized applications and automating complex infrastructures.<br>
-                I'm currently pursuing AZ-104 and CKA certifications, and looking for remote opportunities worldwide. Open to relocation.
+                AZ-104 and CKA certified, I'm now formalizing infrastructure work with Terraform/OpenTofu, and expanding into Kubernetes-native GPU infrastructure. Looking for full-remote opportunities worldwide. Open to relocation.
             </p>
             <p class="cv-summary lang-fr">
-                Ingénieur Cloud et DevOps avec 6+ années d'expérience dans la gestion d'infras. à grande échelle - 60 000+ utilisateurs, Université de Bordeaux.<br>
-                Orchestration Kubernetes, Infrastructure as Code (Terraform), automatisation CI/CD et services cloud Azure, expérience avérée dans le déploiement d'applications conteneurisées et l'automatisation d'infrastructures complexes. 
-                Je prépare actuellement les certifications Azure AZ-104 et Kubernetes CKA, et suis à la recherche d'opportunités à distance à l'internatinal. Ouvert à la relocalistation.
+                "Platform Engineer" avec +6 années d'expérience dans la gestion d'infras. à grande échelle : 60 000+ utilisateurs, Université de Bordeaux.<br>
+                Orchestration Kubernetes, Infrastructure as Code (Terraform), automatisation CI/CD et services cloud Azure, expérience avérée dans le déploiement d'applications conteneurisées et l'automatisation d'infrastructures complexes.<br>
+                Certifié AZ-104 et CKA, je formalise aujourd'hui mon travail d'infrastructure avec Terraform/OpenTofu, et j'approfondis l'infrastructure GPU native Kubernetes. À la recherche d'opportunités en full remote à l'international. Ouvert à la relocalisation.
             </p>
         </div>
 
@@ -521,13 +527,13 @@
             <h3 class="cv-section-title lang-en active">CERTIFICATIONS</h3>
             <h3 class="cv-section-title lang-fr">CERTIFICATIONS</h3>
             <ul class="cv-certifications lang-en active">
-                <li>CKA : Certified Kubernetes Administrator (CKA) | <i>In Progress - Expected March 2026</i></li>
+                <li>CKA : Certified Kubernetes Administrator (CKA) | <i>June 2026 - 88%</i></li>
                 <li>AZ-104 : Microsoft Azure Administrator Associate | <i>January 2026 - 929/1000</i></li>
                 <li>AZ-900 : Microsoft Azure Fundamentals | <i>July 2025 - 873/1000</i></li>
                 <li>MCSA Windows Server 2012 R2 : Exams 70-410, 70-411 and 70-412 | <i>July 2017</i></li>
             </ul>
             <ul class="cv-certifications lang-fr">
-                <li>CKA : Certified Kubernetes Administrator | <i>En cours - Prévue Mars 2026</i></li>
+                <li>CKA : Certified Kubernetes Administrator | <i>Juin 2026 - 88%</i></li>
                 <li>AZ-104 : Microsoft Azure Administrator Associate | <i>Janvier 2026 - 929/1000</i></li>
                 <li>AZ-900 : Microsoft Azure Fundamentals | <i>Juillet 2025 - 873/1000</i></li>
                 <li>MCSA Windows Server 2012 R2 (Exams 70-410, 70-411 et 70-412) | <i>Juillet 2017</i></li>
@@ -606,4 +612,5 @@
         updateLanguage();
     </script>
 </body>
+
 </html>
