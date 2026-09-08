@@ -198,6 +198,20 @@
             color: #333;
         }
 
+
+        /* Languages */
+        .cv-languages {
+            font-size: 11px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+ 
+        .cv-languages-label {
+            font-weight: 600;
+            color: #333;
+        }
+
+
         /* Certifications */
         .cv-certifications {
             list-style-position: outside;
@@ -257,12 +271,43 @@
         @media print {
 
             /* Hide everything except the CV container */
+            /* ---- RÉGLAGES PDF : ajuster ces 3 valeurs ----
+               --cv-font  : taille du corps de texte
+               --cv-lh    : interligne
+               --cv-space : densité des espacements (1 = actuel, 0.6 = compact)
+            */
             body {
+                --cv-font: 11.75px;
+                --cv-lh: 1.4;
+                --cv-space: 0.75;
+
                 background: white !important;
                 padding: 0 !important;
-                word-spacing: -0.03em !important; /* Reduce spacing between words */
-                letter-spacing: -0.01em !important; /* Reduce letter spacing */
-                font-size: 12px !important; /* Increase content font size */
+                font-size: 12px !important;
+            }
+
+            /* Two-page layout: room to breathe */
+            .cv-summary,
+            .cv-job-bullets li,
+            .cv-skills,
+            .cv-certifications li,
+            .cv-languages,
+            .cv-education {
+                font-size: var(--cv-font) !important;
+                line-height: var(--cv-lh) !important;
+            }
+
+            .cv-job-title,
+            .cv-job-location {
+                font-size: calc(var(--cv-font) - 0.5px) !important;
+            }
+
+            .cv-job-company {
+                font-size: calc(var(--cv-font) + 1.5px) !important;
+            }
+
+            .cv-section-title {
+                font-size: calc(var(--cv-font) + 1px) !important;
             }
 
             .controls,
@@ -272,14 +317,25 @@
 
             .cv-container {
                 box-shadow: none !important;
-                padding: 28px 35px !important;
+                padding: 8px 42px calc(34px * var(--cv-space)) 42px !important;
                 max-width: 100% !important;
                 margin: 0 !important;
             }
 
+            /* Ne pas couper un bloc au milieu d'une page */
+            .cv-section,
+            .cv-job,
+            .cv-skills,
+            .cv-certifications,
+            .cv-languages,
+            .cv-education {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
             @page {
                 size: A4;
-                margin: 0.2cm 0.3cm 0.3cm 0.3cm;
+                margin: 1.3cm 0.6cm 0.9cm 0.6cm;
             }
 
             /* Reduce spacing between title and separator */
@@ -298,9 +354,9 @@
             .cv-job-grid {
                 display: grid !important;
                 grid-template-columns: 1fr auto !important;
-                row-gap: 0.1px !important;
+                row-gap: 2px !important;
                 align-items: baseline !important;
-                margin-bottom: 10px !important;
+                margin-bottom: calc(12px * var(--cv-space)) !important;
             }
 
             /* Keep periods and locations on one line */
@@ -311,37 +367,41 @@
 
             /* Reduce spacing for print and between section titles and content */
             .cv-section-title {
-                margin-top: 12px !important;
-                margin-bottom: 8px !important;
+                margin-top: calc(34px * var(--cv-space)) !important;
+                margin-bottom: calc(15px * var(--cv-space)) !important;
             }
 
             .cv-job {
-                margin-bottom: 12px !important;
+                margin-bottom: calc(24px * var(--cv-space)) !important;
             }
 
             .cv-job-bullets li {
-                margin-bottom: 3px !important;
+                margin-bottom: calc(8px * var(--cv-space)) !important;
             }
 
             .cv-header {
-                margin-bottom: 11px !important;
-                padding-bottom: 11px !important;
+                margin-bottom: calc(18px * var(--cv-space)) !important;
+                padding-bottom: calc(18px * var(--cv-space)) !important;
             }
 
             .cv-contact {
-                margin-bottom: 11px !important;
+                margin-bottom: calc(14px * var(--cv-space)) !important;
             }
 
             .cv-summary {
-                margin-bottom: 11px !important;
+                margin-bottom: calc(20px * var(--cv-space)) !important;
             }
 
             .cv-skills {
-                margin-bottom: 10px !important;
+                margin-bottom: calc(18px * var(--cv-space)) !important;
             }
 
             .cv-certifications {
-                margin-bottom: 10px !important;
+                margin-bottom: calc(18px * var(--cv-space)) !important;
+            }
+
+            .cv-languages {
+                margin-bottom: calc(18px * var(--cv-space)) !important;
             }
 
             .cv-education {
@@ -413,7 +473,8 @@
         <div class="cv-contact">
             <p class="lang-en active">France - Open to relocation</p>
             <p class="lang-fr">France - Ouvert à relocalisation</p>
-            <p><i>louis.lecat@proton.me</i> | <i>linkedin.com/in/lolecat</i> | <i>github.com/lolecat</i> | <i>lolecat.me</i></p>
+            <p class="lang-en active"><i>louis.lecat@proton.me</i> | <i>linkedin.com/in/lolecat</i> | <i>github.com/lolecat</i> | <i>lolecat.me</i></p>
+            <p class="lang-fr"><i>louis.lecat@proton.me</i> | <i>+33685205088</i> | <i>linkedin.com/in/lolecat</i> | <i>github.com/lolecat</i> | <i>lolecat.me</i></p>
         </div>
 
         <!-- Summary -->
@@ -422,13 +483,13 @@
             <h3 class="cv-section-title lang-fr">À PROPOS</h3>
             <p class="cv-summary lang-en active">
                 French Platform Engineer with 6+ years of experience managing large-scale infrastructure for 60,000+ users at the University of Bordeaux.<br>
-                Specialized in Kubernetes orchestration, Infrastructure as Code (Terraform), Powershell scripting, CI/CD automation, and Azure cloud services, with a proven track record deploying containerized applications and automating complex infrastructures.<br>
-                AZ-104 and CKA certified, I'm now formalizing infrastructure work with Terraform/OpenTofu, and expanding into Kubernetes-native GPU infrastructure. Looking for full-remote opportunities worldwide. Open to relocation.
+                Specialized in Kubernetes orchestration, Infrastructure as Code (Terraform), PowerShell scripting, CI/CD automation, and Azure cloud services, with a proven track record deploying containerized applications and automating complex infrastructures.<br>
+                AZ-104 and CKA certified, I'm now formalizing infrastructure work with Terraform/OpenTofu, and expanding into Kubernetes native GPU infrastructure. Looking for full-remote opportunities worldwide, open to relocation.
             </p>
             <p class="cv-summary lang-fr">
-                "Platform Engineer" avec +6 années d'expérience dans la gestion d'infras. à grande échelle : 60 000+ utilisateurs, Université de Bordeaux.<br>
-                Orchestration Kubernetes, Infrastructure as Code (Terraform), automatisation CI/CD et services cloud Azure, expérience avérée dans le déploiement d'applications conteneurisées et l'automatisation d'infrastructures complexes.<br>
-                Certifié AZ-104 et CKA, je formalise aujourd'hui mon travail d'infrastructure avec Terraform/OpenTofu, et j'approfondis l'infrastructure GPU native Kubernetes. À la recherche d'opportunités en full remote à l'international. Ouvert à la relocalisation.
+                Platform Engineer avec +6 années d'expérience dans la gestion d'infras. à grande échelle : 60 000+ utilisateurs, Université de Bordeaux.<br>
+                Je me suis spécialisé en orchestration Kubernetes, Infrastructure as Code (Terraform), automatisation CI/CD et services cloud Azure, avec une expérience avérée dans le déploiement d'applications conteneurisées et l'automatisation d'infrastructures complexes.<br>
+                Certifié AZ-104 et CKA, je formalise aujourd'hui mon travail d'infrastructure avec Terraform/OpenTofu, et j'approfondis l'infrastructure GPU native Kubernetes. À la recherche d'opportunités en full remote à l'international, je suis ouvert à la relocalisation.
             </p>
         </div>
 
@@ -437,6 +498,67 @@
             <h3 class="cv-section-title lang-en active">WORK EXPERIENCE</h3>
             <h3 class="cv-section-title lang-fr">EXPÉRIENCES PROFESSIONNELLES</h3>
 
+            <!-- Freelance -->
+            <div class="cv-job">
+                <div class="cv-job-grid">
+                    <div>
+                        <span class="cv-job-company lang-en active inline">Independent - Freelance</span>
+                        <span class="cv-job-company lang-fr inline">Indépendant - Freelance</span>
+                    </div>
+                    <span class="cv-job-location lang-en active">Bordeaux, France | Remote</span>
+                    <span class="cv-job-location lang-fr">Bordeaux, France | Remote</span>
+
+                    <div>
+                        <span class="cv-job-title lang-en active">Platform Engineer</span>
+                        <span class="cv-job-title lang-fr">Platform Engineer</span>
+                    </div>
+                    <div>
+                        <span class="cv-job-period lang-en active"><i>July 2026 - Present</i></span>
+                        <span class="cv-job-period lang-fr"><i>Juillet 2026 - Aujourd'hui</i></span>
+                    </div>
+                </div>
+
+                <ul class="cv-job-bullets lang-en active">
+                    <li>Designed, built and operate a production platform on Azure (ACR, AKS/ACI) for a cooperative of Balinese drivers: containerized workloads, CI/CD pipeline from local development to production, and documented architecture</li>
+                    <li>Automated an ephemeral WireGuard VPN infrastructure on Azure, implemented twice (Bicep and Terraform) to compare provisioning models, with fully automated deployment and teardown</li>
+                    <li>Currently working on Kubernetes-native GPU scheduling (DRA, Kueue) applied to AI workloads at the platform layer</li>
+                </ul>
+                <ul class="cv-job-bullets lang-fr">
+                    <li>Conception, construction et exploitation d'une plateforme en production sur Azure (ACR, AKS/ACI) pour une coopérative de chauffeurs balinais : containerisation, chaîne CI/CD du développement local à la production, documentation de l'architecture</li>
+                    <li>Automatisation d'une infrastructure VPN WireGuard éphémère sur Azure, implémentée deux fois (Bicep et Terraform) pour comparer les modèles de provisionnement, avec déploiement et destruction entièrement automatisés</li>
+                    <li>Travaux en cours sur le scheduling GPU natif Kubernetes (DRA, Kueue) appliqué aux charges IA, au niveau de la couche plateforme</li>
+                </ul>
+            </div>
+
+            <!-- Césure et montée en compétences -->
+            <div class="cv-job">
+                <div class="cv-job-grid">
+                    <div>
+                        <span class="cv-job-company lang-en active inline">Career break and structured upskilling</span>
+                        <span class="cv-job-company lang-fr inline">Césure et montée en compétences</span>
+                    </div>
+                    <span class="cv-job-location lang-en active">Indonesia, Vietnam, France</span>
+                    <span class="cv-job-location lang-fr">Indonésie, Vietnam, France</span>
+
+                    <div></div>
+                    <div>
+                        <span class="cv-job-period lang-en active"><i>December 2024 - June 2026</i></span>
+                        <span class="cv-job-period lang-fr"><i>Décembre 2024 - Juin 2026</i></span>
+                    </div>
+                </div>
+
+                <ul class="cv-job-bullets lang-en active">
+                    <li>Career break spent abroad (December 2024 - December 2025), followed by a technical transition toward platform engineering (January - June 2026)</li>
+                    <li>AZ-104 Azure Administrator Associate (929/1000, January 2026) and CKA Certified Kubernetes Administrator (88%, June 2026), both prepared through hands-on lab work</li>
+                    <li>Built a multi-node Kubernetes homelab with Azure integrations, and published detailed study notes and labs for both certifications (see GitHub)</li>
+                </ul>
+                <ul class="cv-job-bullets lang-fr">
+                    <li>Année de césure à l'international (décembre 2024 - décembre 2025), suivie d'une montée en compétences technique vers le platform engineering (janvier - juin 2026)</li>
+                    <li>AZ-104 : Azure Administrator Associate (929/1000, janvier 2026) et CKA : Certified Kubernetes Administrator (88%, juin 2026), préparation via labs et mises en pratique</li>
+                    <li>Construction d'un homelab Kubernetes multi-nœuds avec intégrations Azure, publication de notes et labs détaillés pour les deux certifications (cf. GitHub)</li>
+                </ul>
+            </div>
+
             <!-- Job 1 -->
             <div class="cv-job">
                 <div class="cv-job-grid">
@@ -444,7 +566,8 @@
                         <span class="cv-job-company lang-en active inline">University of Bordeaux - IT Department</span>
                         <span class="cv-job-company lang-fr inline">Université de Bordeaux - DSI</span>
                     </div>
-                    <span class="cv-job-location">Bordeaux, France</span>
+                    <span class="cv-job-location lang-en active">Bordeaux, France | Hybrid</span>
+                    <span class="cv-job-location lang-fr">Bordeaux, France | Hybride</span>
 
                     <div>
                         <span class="cv-job-title lang-en active">DevOps Engineer</span>
@@ -457,16 +580,16 @@
                 </div>
 
                 <ul class="cv-job-bullets lang-en active">
-                    <li>Containerized and deployed legacy and new applications to Kubernetes clusters (dev/stag/prod) using Gitlab CI, Helm and FluxCD</li>
-                    <li>Developed reusable Terraform modules for multi-environment IaaS deployments on OpenStack (VMs, networks, K8s clusters infrastructures), implementing GitOps workflow with tf-controller for automated provisioning</li>
-                    <li>Deployed ITSM applications serving 1,000+ concurrent users, managing full stack from IaaS creation (Terraform/OpenStack) to application configuration (Ansible)</li>
-                    <li>Ensured operational continuity and system reliability through Prometheus/Grafana monitoring (40+ services, 600+ servers), proactive troubleshooting of Linux servers and databases (MongoDB, MariaDB, PostgreSQL), certificate management, and data migrations</li>
+                    <li>Wrote the Terraform code provisioning the underlying infrastructure for 3 of the 6 Kubernetes clusters and for the wider platform, refactored into reusable modules and applied through tf-controller, making every environment reproducible from Git</li>
+                    <li>Operated 6 Kubernetes clusters across dev, staging and production hosting 30+ applications, and designed the delivery pipeline jointly with each development team when onboarding a new application, enabling them to deploy on their own</li>
+                    <li>Containerized and migrated legacy and new applications onto those clusters via GitLab CI, Helm and FluxCD, including an ITSM platform serving 1,000+ concurrent users, from infrastructure provisioning (Terraform) to application configuration (Ansible)</li>
+                    <li>Ran the Prometheus/Grafana/AlertManager stack covering 40+ services and 600+ servers, and handled day-2 operations: certificate rotation, data migrations, and incident recovery on Linux servers and databases (e.g. full restoration of a production message history lost to a failed upgrade)</li>
                 </ul>
                 <ul class="cv-job-bullets lang-fr">
-                    <li>Conteneurisation et déploiement d'applications existantes et nouvelles sur des clusters Kubernetes (dev/stag/prod) via Gitlab CI, Helm et FluxCD</li>
-                    <li>Développement de modules Terraform réutilisables pour déploiements IaaS multi-environnements sur OpenStack (VMs, réseaux, infrastructure de clusters K8s), implémentation d'un workflow GitOps avec tf-controller pour provisionnement automatisé</li>
-                    <li>Déploiement d'applications ITSM desservant 1000+ utilisateurs simultanés, gestion complète de la création IaaS (Terraform/OpenStack) à la configuration applicative (Ansible)</li>
-                    <li>Maintien de la continuité opérationnelle et de la fiabilité des systèmes via stack Prometheus/Grafana (40+ services, 600+ serveurs), troubleshooting de serveurs Linux et bases de données (MongoDB, MariaDB, PostgreSQL), gestion des certificats et migrations de données</li>
+                    <li>Rédaction du code Terraform provisionnant l'infrastructure sous-jacente de 3 des 6 clusters Kubernetes et du reste de la plateforme, factorisé en modules réutilisables et appliqué via tf-controller, rendant chaque environnement reproductible depuis Git</li>
+                    <li>Exploitation de 6 clusters Kubernetes en dev, staging et production hébergeant 30+ applications, et conception de la chaîne de livraison avec chaque équipe de développement pour chaque nouvelle application, leur permettant ensuite de déployer en autonomie</li>
+                    <li>Conteneurisation et migration d'applications existantes et nouvelles sur ces clusters via GitLab CI, Helm et FluxCD, dont une plateforme ITSM desservant 1000+ utilisateurs simultanés, du provisionnement de l'infrastructure (Terraform) à la configuration applicative (Ansible)</li>
+                    <li>Exploitation de la stack Prometheus/Grafana/AlertManager sur 40+ services et 600+ serveurs, et gestion du day-2 : rotation des certificats, migrations de données, et résolution d'incidents sur serveurs Linux et bases de données (ex. restauration complète d'un historique de messages de production perdu suite à une mise à jour mal qualifiée)</li>
                 </ul>
             </div>
 
@@ -490,29 +613,56 @@
                 </div>
 
                 <ul class="cv-job-bullets lang-en active">
-                    <li>Designed and deployed unified Active Directory domain following merger of 3 universities, consolidating 6 legacy domains and establishing centralized administration policies for 60,000+ users</li>
-                    <li>Designed and planned DFS architecture for 60,000+ users, defining security policies, namespace structures and directory hierarchies</li>
-                    <li>Migrated 20+ TB of production data (including critical) to DFS and administered 34TB across 6 file servers serving 5,000+ users with 2,000+ daily active sessions</li>
-                    <li>Automated identity lifecycle management via PowerShell scripts for OpenLDAP-to-AD synchronization (twice-daily processing of 70k+ accounts), group-based access control through LDAP/Grouper integration, and Kerberos cross-realm authentication</li>
-                    <li>Deployed Remote Desktop Services and RemoteApp infrastructure, delivered level 3 support and automated administrative tasks</li>
+                    <li>Designed and delivered the unified Active Directory domain following the merger of 3 universities, consolidating 6 legacy domains into a single administration model for 60,000+ users, defining the naming and administration rules, and automating the workstation migration in PowerShell so on-site teams could switch entire rooms over without service interruption</li>
+                    <li>Automated identity lifecycle management in PowerShell: OpenLDAP-to-AD synchronization reconciling 70k+ accounts twice daily, dynamic group-based access control through LDAP/Grouper integration, and Kerberos cross-realm authentication between AD and UNIX</li>
+                    <li>Designed the DFS architecture serving 60,000+ users (namespace structure, directory hierarchies, security policies), migrated 20+ TB of production data onto it including critical workloads, and administered 34 TB across 6 file servers for 5,000+ users with 2,000+ daily sessions</li>
+                    <li>Designed the NTFS permission model for the whole DFS namespace: controlled inheritance across the tree, distinct access patterns for shared, private and cross-departmental areas as well as sealed exam-submission drops, with rights driven by the LDAP/Grouper-synchronized groups rather than assigned per user</li>
                 </ul>
                 <ul class="cv-job-bullets lang-fr">
-                    <li>Conception et déploiement d'un domaine Active Directory unifié suite à la fusion de 3 universités, consolidation de 6 domaines existants et mise en place de politiques d'administration centralisées pour 60 000+ utilisateurs</li>
-                    <li>Conception et planification d'une architecture DFS pour 60 000+ utilisateurs, incluant la définition des politiques de sécurité, structure des namespaces et des arborescences</li>
-                    <li>Migration de 20+ To de données de production (dont critiques) vers DFS et administration continue de 34To sur 6 serveurs desservant 5 000+ utilisateurs avec 2 000+ sessions actives quotidiennes</li>
-                    <li>Automatisation de la gestion du cycle de vie des identités via scripts PowerShell pour synchronisation OpenLDAP vers AD (traitement bi-quotidien de 70k+ comptes), contrôle d'accès dynamique basé sur groupes via intégration LDAP/Grouper, et authentification cross-realm Kerberos</li>
-                    <li>Déploiement d'une infrastructure de Services Bureau à distance et RemoteApp, support niveau 3 et automatisation des tâches administratives</li>
+                    <li>Conception et mise en œuvre du domaine Active Directory unifié suite à la fusion de 3 universités, consolidation de 6 domaines existants en un modèle d'administration unique pour 60 000+ utilisateurs, définition des conventions de nommage et des règles d'administration, et automatisation en PowerShell de la migration des postes permettant aux équipes de proximité de basculer des salles entières sans interruption de service</li>
+                    <li>Automatisation de la gestion du cycle de vie des identités en PowerShell : synchronisation OpenLDAP vers AD réconciliant 70k+ comptes deux fois par jour, contrôle d'accès dynamique par groupes via intégration LDAP/Grouper, et authentification cross-realm Kerberos entre AD et UNIX</li>
+                    <li>Conception de l'architecture DFS pour 60 000+ utilisateurs (structure des namespaces, arborescences, politiques de sécurité), migration de 20+ To de données de production dont critiques, et administration de 34 To sur 6 serveurs de fichiers pour 5 000+ utilisateurs et 2 000+ sessions quotidiennes</li>
+                    <li>Conception du modèle de droits NTFS sur l'ensemble du namespace DFS : héritage maîtrisé sur toute l'arborescence, schémas d'accès distincts pour les partages communs, privés et transverses ainsi que pour les dépôts d'examens cloisonnés, droits pilotés par les groupes synchronisés LDAP/Grouper plutôt qu'attribués par utilisateur</li>
+                </ul>
+            </div>
+
+            <!-- Job 3 -->
+            <div class="cv-job">
+                <div class="cv-job-grid">
+                    <div>
+                        <span class="cv-job-company lang-en active inline">SB2P / IDCSOFT</span>
+                        <span class="cv-job-company lang-fr inline">SB2P / IDCSOFT</span>
+                    </div>
+                    <span class="cv-job-location">Pessac, France</span>
+
+                    <div>
+                        <span class="cv-job-title lang-en active">Systems Administrator (work-study)</span>
+                        <span class="cv-job-title lang-fr">Administrateur systèmes (alternance)</span>
+                    </div>
+                    <div>
+                        <span class="cv-job-period lang-en active"><i>September 2016 - September 2017</i></span>
+                        <span class="cv-job-period lang-fr"><i>Septembre 2016 - Septembre 2017</i></span>
+                    </div>
+                </div>
+
+                <ul class="cv-job-bullets lang-en active">
+                    <li>Redesigned the backup infrastructure covering ~20 SMEs: feasibility study, solution selection, deployment of on-site storage servers, backup policies and synchronization with the central server</li>
+                    <li>Deployed and upgraded Active Directory and supporting infrastructure for those clients, with level 2/3 support and on-site interventions</li>
+                </ul>
+                <ul class="cv-job-bullets lang-fr">
+                    <li>Refonte de l'infrastructure de sauvegarde d'une vingtaine de TPE/PME : étude de faisabilité, choix de la solution, installation des serveurs de stockage sur site, définition des politiques de sauvegarde et synchronisation avec le serveur central</li>
+                    <li>Déploiement et mise à jour des services Active Directory et du reste de l'infrastructure de ces clients, support niveau 2/3 et interventions sur site</li>
                 </ul>
             </div>
         </div>
 
         <!-- Skills -->
-        <div>
+        <div class="cv-section">
             <h3 class="cv-section-title lang-en active">TECHNICAL SKILLS</h3>
             <h3 class="cv-section-title lang-fr">COMPÉTENCES TECHNIQUES</h3>
             <div class="cv-skills">
                 <p class="cv-skill-item"><span class="cv-skill-label">Cloud platforms:</span> Azure, OpenStack</p>
-                <p class="cv-skill-item"><span class="cv-skill-label">Containers orchestration:</span> Kubernetes, Docker, Helm, Flux CD</p>
+                <p class="cv-skill-item"><span class="cv-skill-label">Container orchestration:</span> Kubernetes, Docker, Helm, Flux CD</p>
                 <p class="cv-skill-item"><span class="cv-skill-label">IaC / Configuration management:</span> Terraform, Ansible</p>
                 <p class="cv-skill-item"><span class="cv-skill-label">CI/CD:</span> GitLab CI/CD, GitOps</p>
                 <p class="cv-skill-item"><span class="cv-skill-label">Monitoring:</span> Prometheus, Grafana, AlertManager</p>
@@ -523,11 +673,11 @@
         </div>
 
         <!-- Certifications -->
-        <div>
+        <div class="cv-section">
             <h3 class="cv-section-title lang-en active">CERTIFICATIONS</h3>
             <h3 class="cv-section-title lang-fr">CERTIFICATIONS</h3>
             <ul class="cv-certifications lang-en active">
-                <li>CKA : Certified Kubernetes Administrator (CKA) | <i>June 2026 - 88%</i></li>
+                <li>CKA : Certified Kubernetes Administrator | <i>June 2026 - 88%</i></li>
                 <li>AZ-104 : Microsoft Azure Administrator Associate | <i>January 2026 - 929/1000</i></li>
                 <li>AZ-900 : Microsoft Azure Fundamentals | <i>July 2025 - 873/1000</i></li>
                 <li>MCSA Windows Server 2012 R2 : Exams 70-410, 70-411 and 70-412 | <i>July 2017</i></li>
@@ -540,12 +690,28 @@
             </ul>
         </div>
 
+        <!-- Languages -->
+        <div class="cv-section">
+            <h3 class="cv-section-title lang-en active">LANGUAGES</h3>
+            <h3 class="cv-section-title lang-fr">LANGUES</h3>
+            <p class="cv-languages lang-en active">
+                <span class="cv-languages-label">French:</span> native &nbsp;|&nbsp;
+                <span class="cv-languages-label">English:</span> full professional proficiency &nbsp;|&nbsp;
+                <span class="cv-languages-label">German:</span> basic (7 years of study, needs refreshing)
+            </p>
+            <p class="cv-languages lang-fr">
+                <span class="cv-languages-label">Français :</span> langue maternelle &nbsp;|&nbsp;
+                <span class="cv-languages-label">Anglais :</span> capacité professionnelle complète &nbsp;|&nbsp;
+                <span class="cv-languages-label">Allemand :</span> notions (7 ans d'apprentissage scolaire, à réactiver)
+            </p>
+        </div>
+
         <!-- Education -->
-        <div>
+        <div class="cv-section">
             <h3 class="cv-section-title lang-en active">EDUCATION</h3>
             <h3 class="cv-section-title lang-fr">FORMATION</h3>
             <p class="cv-education lang-en active">
-                <span class="cv-education-degree">Master's Degree in Computer Science (M2)</span> - 2017 - <i>Bordeaux, France</i>
+                <span class="cv-education-degree">Expert in Computer Science & Information Systems, French national qualification, RNCP Level 7 (EQF 7, Master's level)</span> - 2017 - <i>Bordeaux, France</i>
             </p>
             <p class="cv-education lang-fr">
                 <span class="cv-education-degree">Expert en Informatique et Systèmes d'Information (RNCP niveau 7)</span> - 2017 - <i>Bordeaux Ynov Campus</i>
